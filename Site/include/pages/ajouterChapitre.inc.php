@@ -1,11 +1,13 @@
   <?php
   $db=new Mypdo();
   $managerMeth=new MethodeManager($db);
+  $managerChap=new ChapitreManager($db);
 
   $_SESSION['nom']=$_POST['nom'];
-  $num=$managerMeth->getNumMethodeParNom($_SESSION['nom']);
-  $list=$managerMeth->getAllChapitreParMethode($num);
-  $NbrChapitreParMethode=$managerMeth->getNbrChapitreParMethode($num);
+  //$num=$managerMeth->getNumMethodeParNom($_SESSION['nom']);
+  $list=$managerChap->getAllChapitreParMethode($num);
+  
+  $NbrChapitreParMethode=sizeof($list);
 
   if($NbrChapitreParMethode==0){ ?>
 
