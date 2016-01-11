@@ -37,7 +37,7 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 	<li><a href="index.php?page=0">Accueil</a></li>
 	<li><a href="index.php?page=0">M&eacutethode</a>
 		<ul>
-			<li><a href="index.php?page=10">Ajouter</a></li>
+			<li><a href="index.php?page=9">Ajouter</a></li>
 			<li><a href="index.php?page=0">Charger</a></li>
 		</ul>
 	</li>
