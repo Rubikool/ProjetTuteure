@@ -41,7 +41,7 @@ class Methode {
 		$this->per_num = $per_num;
 	}
 
-	public function setMet_description($met_date){
+	public function setMet_description($met_description){
 		$this->met_description = $met_description;
 	}
 

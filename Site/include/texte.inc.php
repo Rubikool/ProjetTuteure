@@ -129,6 +129,10 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 				include("pages/ajouterMethodeSuite.inc.php");
 			  break;
 
+			case 15:
+				include("pages/listerMethode.inc.php");
+				break;
+
 			//==========================================================================
 			// Page de Validation d'une Méthode
 			//==========================================================================
@@ -211,6 +215,10 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 
 			case 12:
 				include("pages/ajouterMethodeSuite.inc.php");
+				break;
+
+			case 13:
+				include("pages/listerMethode.inc.php");
 				break;
 
 			//==========================================================================
