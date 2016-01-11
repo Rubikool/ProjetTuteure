@@ -16,5 +16,15 @@ class ListePartitionManager {
     $req->execute();
   }
 
+  public function getMouvementByPartition($par_num){
+    $sql='SELECT mvm_num, numero FROM listepartition
+          WHERE par_num = :num
+          ORDER BY numero';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':num',$par_num, PDO::PARAM_STR);
+    $requete->execute();
+
+    return $requete->fetch(PDO::FETCH_OBJ);
+  }
 }
 ?>

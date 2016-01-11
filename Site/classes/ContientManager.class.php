@@ -15,5 +15,14 @@ class ChapitreManager {
     $req->execute();
   }
 
+  public function getPartitionByChapitre($cha_num){
+    $sql='SELECT par_num FROM contient
+          WHERE cha_num = :num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':num', $cha_num, PDO::PARAM_STR);
+    $requete->execute();
+
+    return $requete->fetch(PDO::FETCH_OBJ);
+  }
 }
 ?>
