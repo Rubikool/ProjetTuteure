@@ -15,7 +15,7 @@ body{
 
 #header{
 	width : 100%;
-	height : 230px;
+	height : 170px;
 	background-color : black;
 	box-shadow : 0 0 20px black;
 	position : relative;
@@ -23,13 +23,17 @@ body{
 
 #entete{
 	width : 1050px;
-	height : 230px;
+	height : 170px;
 	margin : auto;
 }
 
 #imgLogo{
-	width : 100%;
-	height : 100%;
+	margin-top: 2%;
+	width : 80%;
+	height : 80%;
+	display: block;
+	max-width : 90%;
+	max-height: 90%;
 }
 
 #logo{
@@ -111,8 +115,15 @@ h1{
 }
 
 .boutonConnexion{
-	display : inline;
+	margin-top: 2%;
+	display : block;
+	float: left;
 	/*margin-left : 40%;*/
+}
+.boutonInscription{
+	margin-top: 2%;
+	display : block;
+	float :right;
 }
 
 .choixRCAccueil{
@@ -121,7 +132,8 @@ h1{
 
 .imageRCAccueil{
 	align : center;
-	width : 20%;
+	width : 10%;
+	height: 10%;
 }
 
 #methode{

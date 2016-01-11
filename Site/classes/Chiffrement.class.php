@@ -24,5 +24,5 @@ class Chiffrement {
         return rtrim($data);
     }
 }
-//Coucou
+
 ?>

@@ -21,8 +21,8 @@ if(empty($_SESSION["connecte"])){
 	echo 'Identifiant : <input type="text" name="login" />';
 	echo '<br/>Mot de passe : <input type="password" name="pwd" />';
   echo '<br/><div><input type="submit" value="Connexion" class="boutonConnexion" /></div>';
-  echo '<br/><div><a href="index.php?page=3" ><input type="button" value="Inscription" class="boutonConnexion" /></a></div>';
-  echo '<p><a href="index.php?page=9">mot de passe oublié</a></p>';
+  echo '<div><a href="index.php?page=3" ><input type="button" value="Inscription" class="boutonInscription" /></a></div>';
+  echo '<br/><p><a href="index.php?page=9">mot de passe oublié</a></p>';
   echo '</form>';
 } else {
   if ($_SESSION["connecte"] == 1){
