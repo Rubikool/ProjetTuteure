@@ -23,23 +23,7 @@ class MethodeManager {
 
   public function getAllMethode(){
     $listeMethodes = array();
-    $sql = 'SELECT cit_num, per_num, cit_libelle, cit_date_valide FROM methode
-      WHERE cit_valide = 1 AND cit_date_valide IS NOT NULL
-      ORDER BY cit_date DESC LIMIT 2';
-    $req = $this->db->prepare($sql);
-    $req->execute();
-    while ($methode = $req->fetch(PDO::FETCH_OBJ)){
-      $listeMethodes[] = new Methode($methode);
-    }
-    return $listeMethodes;
-    $req->closeCursor();
-  }
-
-  public function getMethodeNonValide(){
-    $listeMethodes = array();
-    $sql = 'SELECT cit_num, per_num, cit_libelle, cit_date_valide FROM methode
-      WHERE cit_valide = 0 AND cit_date_valide IS NULL
-      ORDER BY cit_date DESC';
+    $sql = 'SELECT met_num, per_num, met_date, met_description, cub_taille,met_nom FROM methode';
     $req = $this->db->prepare($sql);
     $req->execute();
     while ($methode = $req->fetch(PDO::FETCH_OBJ)){
@@ -82,6 +66,15 @@ class MethodeManager {
   public function getMethodeLastID(){
     $sql='SELECT LAST_INSERT_ID() FROM methode';
     $requete=$this->db->prepare($sql);
+    $requete->execute();
+
+    return $requete->fetchCOLUMN();
+  }
+
+  public function getNumMethodeParNom($met_nom){
+    $sql='SELECT met_num FROM methode WHERE met_nom=:met_nom';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_nom',$met_nom,PDO::PARAM_STR);
     $requete->execute();
 
     return $requete->fetchCOLUMN();

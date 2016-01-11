@@ -1,87 +1,26 @@
 <?php
-$bd = new Mypdo();
-$manager = new CitationManager($bd);
-$managerPer = new PersonneManager($bd);
+$bd=new Mypdo();
+$managerMeth=new MethodeManager($bd);
+$managerChap=new ChapitreManager($bd);
+$methodes=$managerMeth->getAllMethode();
+
 ?>
 
-<h1>Liste des citations déposées</h1>
-
-<?php
-echo 'Actuellement '.$manager->getNbreCitation()->nbreCitation.' citations sont enregistr&eacutees';
-?>
-
-	<br/><br/>
-	<table align="center">
-		<tr>
-			<th>Nom de l'enseignant</th>
-			<th>Libell&eacute</th>
-			<th>Date</th>
-			<th>Moyenne des notes</th>
-
-<?php
-if(!empty($_SESSION["connecte"])){
-	if($_SESSION["admin"] == 0){
-?>
-
-			<th>Noter</th>
-
-<?php
-	}
-}
-?>
-
-		</tr>
-
-<?php
-$listeCitations = $manager->getCitation();
-foreach ($listeCitations as $citation){
-?>
-
-  <tr>
-		<td><?php echo $manager->getNomEnseignant($citation->getPer_num()); ?></td>
-		<td><?php echo $citation->getCit_libelle(); ?></td>
-		<td><?php echo $citation->getCit_date_valide(); ?></td>
-		<td>
-
-<?php
-if ($manager->getMoyenne($citation->getCit_num()) == ''){
-	echo 'Pas de notes';
-} else {
-	echo $manager->getMoyenne($citation->getCit_num());
-}
-?>
-
-		</td>
-
-<?php
-if(!empty($_SESSION["connecte"])){
-	if($_SESSION["admin"] == 0){
-?>
-
-		<td>
-<?php
-$perNum = $managerPer->getNumPersonneAvecNom($_SESSION["nom"])->per_num;
-$citNum = $citation->getCit_num();
-
-if($manager->verifPersonneCitation($perNum,$citNum)->nbreLigne == 1){
-	echo '<img src="image/erreur.png" />';
-} else {
-	$numCit = $citation->getCit_num();
-	echo '<a href="index.php?page=26&num='.$numCit.'" ><img src="image/modifier.png" /></a>';
-}
-?>
-		</td>
-
-<?php
-	}
-}
-?>
-
+<h1>Liste des m&eacutethodes enregistrées</h1>
+<p> Actuellement <?php echo sizeof($methodes) ;?> methodes sont enregistrées  </p>
+<table class="listeof">
+	<tr class="listof">
+		<th class="listof">Nom</th><th class="listof">Nombre de chapitres</th>
 	</tr>
+	<?php foreach($methodes as $methode){
 
-<?php
-}
-?>
-
-  </table>
-	<br/>
+				$nbrChapitre=$managerChap->getAllChapitreParMethode($methode->getMet_num());
+				$NBRChapitre=sizeof($nbrChapitre);?>
+		<tr>
+			<td class="listof"><a href="index.php?page=11&num=<?php echo $methode->getMet_num(); ?>"><?php echo $methode->getMet_nom();?></a></td>
+			<td class="listof"><a href="index.php?page=11&num=<?php echo $methode->getMet_num(); ?>"><?php echo $NBRChapitre;?></a></td>
+		</tr>
+	<?php } ?>
+</table>
+<br />
+<?php echo "Cliquer sur une méthode pour accèder à celle-ci" ?>

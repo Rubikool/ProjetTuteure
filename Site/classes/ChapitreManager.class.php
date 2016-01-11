@@ -23,9 +23,24 @@ class ChapitreManager {
 
   public function getAllChapitreParMethode($met_num){
     $listeChapitres=array();
-    $sql='SELECT cha_num,cha_description,cha_nom,cha_valide,per_num_valide,met_num FROM chapitre c
-          INNER JOIN methode m ON(c.met_num=m.met_num)
-          WHERE met_num=:met_num';
+    $sql='SELECT cha_num,cha_description,cha_nom,cha_valide,per_num_valide,chapitre.met_num FROM chapitre
+    INNER JOIN methode ON chapitre.met_num = methode.met_num WHERE chapitre.met_num=:met_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
+    $requete->execute();
+    
+    while($chapitres=$requete->fetch(PDO::FETCH_OBJ)){
+            $listeChapitres[]=new Chapitre($chapitres);
+          }
+
+      return $listeChapitres;
+      $requete->closeCursor();
+  }
+
+  public function getAllChapitrePazezaarMethode($met_num){
+    $listeChapitres=array();
+    $sql='SELECT cha_num,cha_description,cha_nom,cha_valide,per_num_valide,chapitre.met_num FROM chapitre
+    INNER JOIN methode ON chapitre.met_num = methode.met_num WHERE chapitre.met_num=:met_num';
     $requete=$this->db->prepare($sql);
     $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
 
