@@ -18,7 +18,7 @@ $managerMeth = new MethodeManager($bd);
           echo '<option value=' .$i.'>'.$i.'x'.$i.'x'.$i. ' </option>'; }?>
         </select>
 
-  <p><label for="nom" >Nom : </label><input type="text" id="nom" name="nom" /></p>
+  <p><label for="nomMethode" >Nom : </label><input type="text" id="nom" name="nomMethode" /></p>
   <p><label for="description" >Description : </label><textarea  id="description" name="Description" rows="8" cols="40"></textarea></p>
 
 

@@ -3,8 +3,8 @@
   $managerMeth=new MethodeManager($db);
   $managerChap=new ChapitreManager($db);
 
-if(!isset($_POST['nom'])){
-  
+if(!isset($_POST['nomMethode'])){
+
 
     if(isset($_GET['num'])){
 
@@ -19,7 +19,7 @@ if(!isset($_POST['nom'])){
 
   if($NbrChapitreParMethode==0){ ?>
 
-  <h1> ajout d'un chapitre pour la méthode : <?php echo $_SESSION['nom']; ?> </h1>
+  <h1> ajout d'un chapitre pour la méthode : <?php echo'' ; ?> </h1>
   <form method="post" action="#">
   <fieldset>
     <legend>Ajouter un chapitre</legend>
@@ -91,16 +91,16 @@ if(!isset($_POST['nom'])){
 
 }else{
 
-  $_SESSION['nom']=$_POST['nom'];
+  $_SESSION['nomMethode']=$_POST['nomMethode'];
 
-  $num=$managerMeth->getNumMethodeParNom($_SESSION['nom']);
+  $num=$managerMeth->getNumMethodeParNom($_SESSION['nomMethode']);
   $list=$managerChap->getAllChapitreParMethode($num);
 
   $NbrChapitreParMethode=sizeof($list);
 
   if($NbrChapitreParMethode==0){ ?>
 
-<h1> ajout d'un chapitre pour la méthode : <?php echo $_SESSION['nom']; ?> </h1>
+<h1> ajout d'un chapitre pour la méthode : <?php echo $_SESSION['nomMethode']; ?> </h1>
   <form method="post" action="#">
   <fieldset>
     <legend>Ajouter un chapitre</legend>
@@ -128,7 +128,7 @@ if(!isset($_POST['nom'])){
 
 
 
-  <h1> ajout d'un nouveau chapitre pour la méthode : <?php echo $_SESSION['nom']; ?> </h1>
+  <h1> ajout d'un nouveau chapitre pour la méthode : <?php echo $_SESSION['nomMethode']; ?> </h1>
     <form method="post" action="#">
     <fieldset>
       <legend>Ajouter un chapitre</legend>
