@@ -1,10 +1,10 @@
 <?php
 $bd = new Mypdo();
-$manager = new TailleCubeSelectManager($bd);
+$manager = new CubeManager($bd);
 
 
-if(!empty($_GET["TailleTailleCubeSelectSelect"])){
-  $_SESSION["TailleTailleCubeSelectSelect"] = $_GET["TailleTailleCubeSelectSelect"];
+if(!empty($_GET["TailleCubeSelect"])){
+  $_SESSION["TailleCubeSelect"] = $_GET["TailleCubeSelect"];
   $_SESSION["nbRB"] = 0;
   $manager->viderCube();
 }
@@ -64,7 +64,7 @@ echo '<br/><br/><br/>';
 echo '<h3>Partition :</h3>';
 echo '<tr><div id="elePartition">';
 
-$listeTailleCubeSelect = $manager->getTailleCubeSelect();
+$listeTailleCubeSelect = $manager->getCube();
 foreach ($listeTailleCubeSelect as $TailleCubeSelect){
   echo '<div class="imagePartition">';
   echo '<img src="image/'.$TailleCubeSelect->getCub_taille().'/'.$TailleCubeSelect->getCub_var1().'_'.$TailleCubeSelect->getCub_var2().$TailleCubeSelect->getCub_lettreFin().'.png" class="imagePartition" />';
