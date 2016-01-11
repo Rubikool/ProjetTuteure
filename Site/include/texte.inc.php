@@ -194,9 +194,9 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 				include("pages/infoPersonne.inc.php");
 				break;
 
-			case 9:
+			/*case 9:
 				include("pages/MotDePasseOubliéPersonne.inc.php");
-				break;
+				break;*/
 
 			//==========================================================================
 			// Page de Méthode
@@ -206,8 +206,12 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 		    break;
 
 			case 11:
-				include("pages/ajouterMethodeSuite.inc.php");
+				include("pages/ajouterChapitre.inc.php");
 			  break;
+
+			case 12:
+				include("pages/ajouterMethodeSuite.inc.php");
+				break;
 
 			//==========================================================================
 			// Page de Non Accès

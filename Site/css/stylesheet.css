@@ -136,6 +136,14 @@ h1{
 	height: 10%;
 }
 
+#lien{
+	display: inline-block;
+}
+
+#lienNom{
+		border: 1px groove black;
+}
+
 #methode{
 	border : 2px solid black;
 	width : 500px;

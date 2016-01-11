@@ -1,14 +1,10 @@
 <?php
 $bd = new Mypdo();
-$manager = new CubeManager($bd);
+$manager = new TailleCubeSelectManager($bd);
 
-if(!isset($_SESSION["nbRB"])){
-  $_SESSION["nbRB"] = 0;
-  $manager->viderCube();
-}
 
-if(!empty($_GET["cube"])){
-  $_SESSION["cube"] = $_GET["cube"];
+if(!empty($_GET["TailleTailleCubeSelectSelect"])){
+  $_SESSION["TailleTailleCubeSelectSelect"] = $_GET["TailleTailleCubeSelectSelect"];
   $_SESSION["nbRB"] = 0;
   $manager->viderCube();
 }
@@ -19,47 +15,47 @@ echo '<div id="methode" >';
 echo '<h2>Methode</h2>';
 echo '</div>';
 
-echo '<h2>Cube '.$_SESSION["cube"].'x'.$_SESSION["cube"].'x'.$_SESSION["cube"].'</h2>';
-echo '<img src="image/'.$_SESSION["cube"].'x'.$_SESSION["cube"].'x'.$_SESSION["cube"].'.png" class="imageRCAccueil" />';
+echo '<h2>Cube '.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'</h2>';
+echo '<img src="image/'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'.png" class="imageRCAccueil" />';
 
 $i = 0;
 echo '<br/>';
-while($i<$_SESSION["cube"]){
+while($i<$_SESSION["TailleCubeSelect"]){
     $i++;
     echo '<a href="index.php?page=4&var1=2&var2='.$i.'&lettreFin=g" onclick="essai(2,'.$i.',g)" ><img src="./image/fg.png"/></a>';
 }
 
 $i = 0;
 echo '<br/>';
-while($i<$_SESSION["cube"]){
+while($i<$_SESSION["TailleCubeSelect"]){
     $i++;
     echo '<a href="index.php?page=4&var1=2&var2='.$i.'&lettreFin=d" onclick="essai(2,'.$i.',d)" ><img src="./image/fd.png"/></a>';
 }
 
 $i = 0;
 echo '<br/>';
-while($i<$_SESSION["cube"]){
+while($i<$_SESSION["TailleCubeSelect"]){
     $i++;
     echo '<a href="index.php?page=4&var1=1&var2='.$i.'&lettreFin=h" onclick="essai(1,'.$i.',h)" ><img src="./image/fdh.png"/></a>';
 }
 
 $i = 0;
 echo '<br/>';
-while($i<$_SESSION["cube"]){
+while($i<$_SESSION["TailleCubeSelect"]){
     $i++;
     echo '<a href="index.php?page=4&var1=1&var2='.$i.'&lettreFin=b" onclick="essai(1,'.$i.',b)" ><img src="./image/fdb.png"/></a>';
 }
 
 $i = 0;
 echo '<br/>';
-while($i<$_SESSION["cube"]){
+while($i<$_SESSION["TailleCubeSelect"]){
     $i++;
     echo '<a href="index.php?page=4&var1=3&var2='.$i.'&lettreFin=g" onclick="essai(3,'.$i.',g)" ><img src="./image/fdg.png"/></a>';
 }
 
 $i = 0;
 echo '<br/>';
-while($i<$_SESSION["cube"]){
+while($i<$_SESSION["TailleCubeSelect"]){
     $i++;
     echo '<a href="index.php?page=4&var1=3&var2='.$i.'&lettreFin=d" onclick="essai(3,'.$i.',d)" ><img src="./image/fdd.png"/></a>';
 }
@@ -68,10 +64,10 @@ echo '<br/><br/><br/>';
 echo '<h3>Partition :</h3>';
 echo '<tr><div id="elePartition">';
 
-$listeCube = $manager->getCube();
-foreach ($listeCube as $cube){
+$listeTailleCubeSelect = $manager->getTailleCubeSelect();
+foreach ($listeTailleCubeSelect as $TailleCubeSelect){
   echo '<div class="imagePartition">';
-  echo '<img src="image/'.$cube->getCub_taille().'/'.$cube->getCub_var1().'_'.$cube->getCub_var2().$cube->getCub_lettreFin().'.png" class="imagePartition" />';
+  echo '<img src="image/'.$TailleCubeSelect->getCub_taille().'/'.$TailleCubeSelect->getCub_var1().'_'.$TailleCubeSelect->getCub_var2().$TailleCubeSelect->getCub_lettreFin().'.png" class="imagePartition" />';
   echo '<input type="button" src="image/valid.png" />';
   echo '</div>';
 }
