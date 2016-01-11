@@ -58,6 +58,6 @@ if (empty($nom) OR empty($prenom)){
   $manager->add($personne);
 
   echo '<img src="image/valid.png" /> L\'&eacuteleve a &eacutet&eacute ajout&eacute !';
-  header("Refresh : 2 ; URL = index.php?page=6");
+  header("Refresh : 2 ; URL = index.php");
 }
 ?>
