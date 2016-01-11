@@ -16,8 +16,6 @@ class LienManager {
     $req->execute();
   }
 
-  echo 'CACA';
-
   public function getLienByChapitre($cha_num){
     $sql='SELECT lien_num, lien_adresse FROM lien
           WHERE cha_num = :num';
