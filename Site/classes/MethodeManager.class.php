@@ -78,5 +78,13 @@ class MethodeManager {
 
     return $requete->fetchCOLUMN();
   }
+
+  public function getMethodeLastID(){
+    $sql='SELECT LAST_INSERT_ID() FROM methode';
+    $requete=$this->db->prepare($sql);
+    $requete->execute();
+
+    return $requete->fetchCOLUMN();
+  }
 }
 ?>
