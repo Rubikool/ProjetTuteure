@@ -4,6 +4,7 @@
   $managerChap=new ChapitreManager($db);
 
 if(!isset($_POST['nom'])){
+  
 
     if(isset($_GET['num'])){
 
@@ -14,6 +15,7 @@ if(!isset($_POST['nom'])){
   $list=$managerChap->getAllChapitreParMethode($_SESSION['num']);
 
   $NbrChapitreParMethode=sizeof($list);
+
 
   if($NbrChapitreParMethode==0){ ?>
 
