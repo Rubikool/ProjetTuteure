@@ -8,18 +8,16 @@ class MethodeManager {
   }
 
   public function add($methode){
-    $req = $this->db->prepare('INSERT INTO Methode (cit_num, per_num, per_num_valide, per_num_etu,
-      cit_libelle, cit_date, cit_valide, cit_date_valide, cit_date_depo) VALUES(:cit_num, :per_num,
-      :per_num_valide, :per_num_etu, :cit_libelle, :cit_date, :cit_valide, :cit_date_valide, :cit_date_depo)');
-    $req->bindValue(':cit_num', $methode->getCit_num(), PDO::PARAM_STR);
+    $req = $this->db->prepare('INSERT INTO methode (met_num, per_num, met_date, met_description,
+      cub_taille, met_nom) VALUES(:met_num, :per_num,
+      :met_date, :met_description, :cub_taille, :met_nom)');
+    $req->bindValue(':met_num', $methode->getMet_num(), PDO::PARAM_STR);
     $req->bindValue(':per_num', $methode->getPer_num(), PDO::PARAM_STR);
-    $req->bindValue(':per_num_valide', $methode->getPer_num_valide(), PDO::PARAM_STR);
-    $req->bindValue(':per_num_etu', $methode->getPer_num_etu(), PDO::PARAM_STR);
-    $req->bindValue(':cit_libelle', $methode->getCit_libelle(), PDO::PARAM_STR);
-    $req->bindValue(':cit_date', $methode->getCit_date(), PDO::PARAM_STR);
-    $req->bindValue(':cit_valide', $methode->getCit_valide(), PDO::PARAM_STR);
-    $req->bindValue(':cit_date_valide', $methode->getCit_date_valide(), PDO::PARAM_STR);
-    $req->bindValue(':cit_date_depo', $methode->getCit_date_depo(), PDO::PARAM_STR);
+    $req->bindValue(':met_date', $methode->getMet_date(), PDO::PARAM_STR);
+    $req->bindValue(':met_description', $methode->getMet_description(), PDO::PARAM_STR);
+    $req->bindValue(':cub_taille', $methode->getCub_taille(), PDO::PARAM_STR);
+    $req->bindValue(':met_nom', $methode->getMet_nom(), PDO::PARAM_STR);
+
     $req->execute();
   }
 
