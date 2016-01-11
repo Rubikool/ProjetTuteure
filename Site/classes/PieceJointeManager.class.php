@@ -16,5 +16,16 @@ class PieceJointeManager {
     $req->execute();
   }
 
+  echo 'OUIII';
+
+  public function getPieceJointeByChapitre($cha_num){
+    $sql='SELECT pie_num, lien_fichier FROM piecejointe
+          WHERE cha_num = :num';
+          $requete=$this->db->prepare($sql);
+    $requete->bindValue(':num', $cha_num, PDO::PARAM_STR);
+    $requete->execute();
+
+    return $requete->fetch(PDO::FETCH_OBJ);
+  }
 }
 ?>
