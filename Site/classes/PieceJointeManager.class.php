@@ -16,8 +16,6 @@ class PieceJointeManager {
     $req->execute();
   }
 
-  echo 'OUIII';
-
   public function getPieceJointeByChapitre($cha_num){
     $sql='SELECT pie_num, lien_fichier FROM piecejointe
           WHERE cha_num = :num';
