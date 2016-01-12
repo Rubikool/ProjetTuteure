@@ -23,3 +23,5 @@ $manager = new CubeManager($bd);
   <a href="index.php?page=4&TailleCubeSelect=7" ><img src="image/7x7x7.png" class="imageRCAccueil" /></a>
 </div>
 <br/>
+
+<a href="index.php?page=14" >page fichier</a>
