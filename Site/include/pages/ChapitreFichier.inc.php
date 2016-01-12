@@ -38,18 +38,12 @@ if(empty($_FILES)){
     $error = "L'extension est incorrecte !";
     $extension = 1;
   }
-  echo 'nom : '.$_FILES['mon_fichier']['name'];
-  echo '<br/>type : '.$_FILES['mon_fichier']['type'];
-  echo '<br/>taille : '.$_FILES['mon_fichier']['size'];
-  echo '<br/>fichier temporaire : '.$_FILES['mon_fichier']['tmp_name'];
-  echo '<br/>error : '.$_FILES['mon_fichier']['error'];
-  echo '<br/>'.$error;
 
   if($taille == 0 && $extension == 0 && $erreur == 0){
     $emplacement = $nomRepertoire.'test.pdf';
     $resultat = move_uploaded_file($_FILES['mon_fichier']['tmp_name'],$emplacement);
     if($resultat){
-      echo "Transfert réussi";
+      echo "<br/>Transfert réussi";
     }
   }
 }
