@@ -45,6 +45,15 @@ class ChapitreManager {
     return $requete->fetchCOLUMN();
   }
 
+  public function getNumChapitreParMethode($met_num){
+    $sql='SELECT COUNT(*) FROM chapitre WHERE met_num=:met_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
+    $requete->execute();
+
+    return $requete->fetchCOLUMN();
+  }
+
 
 }
 ?>

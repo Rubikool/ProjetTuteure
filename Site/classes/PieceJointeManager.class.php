@@ -42,5 +42,13 @@ class PieceJointeManager {
       return $listePiJo;
       $requete->closeCursor();
   }
+
+  public function getNumPiJoMax(){
+    $sql='SELECT MAX(pie_num) FROM piecejointe';
+    $requete=$this->db->prepare($sql);
+    $requete->execute();
+
+    return $requete->fetchCOLUMN();
+  }
 }
 ?>

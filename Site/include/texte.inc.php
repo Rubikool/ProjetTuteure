@@ -210,9 +210,9 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 		    break;
 
 			case 11:
-				include("pages/ajouterChapitre.inc.php");
-			  break;
-
+					include("pages/ajouterChapitre.inc.php");
+					break;
+					
 			case 12:
 				include("pages/ajouterMethodeSuite.inc.php");
 				break;
@@ -240,7 +240,11 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 			case 16:
 				include("pages/ChapitrePartition.inc.php");
 				break;
-				
+
+			case 30:
+				include("pages/ajouterChapitreV2.inc.php");
+				break;
+
 			//==========================================================================
 			// Page de Non Accès
 			//==========================================================================

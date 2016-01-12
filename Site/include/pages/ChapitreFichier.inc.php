@@ -1,10 +1,20 @@
 <?php
+$db=new MyPdo();
+$managerPijo=new PieceJointeManager($db);
+
 $maxsize = 1000000;
 $extensions_valides = array('pdf');
 $nomRepertoire = 'fichierMethode/';
 $taille = 0;
 $extension = 0;
 $erreur = 0;
+
+if(isset($_GET['numChapitre'])){
+    $numChapitre=$_GET['numChapitre'];
+}
+
+
+
 
 if(empty($_FILES)){
 ?>
@@ -39,14 +49,28 @@ if(empty($_FILES)){
     $extension = 1;
   }
 
+  $NbrPieceJointe=$managerPijo->getNumPiJoMax()+1;
+
   if($taille == 0 && $extension == 0 && $erreur == 0){
-    $emplacement = $nomRepertoire.'test.pdf';
+    $emplacement = $nomRepertoire.'Meth'.$_SESSION['numMethode'].'_Chap'.$numChapitre.'_Lien'.$NbrPieceJointe.'.pdf';
     $resultat = move_uploaded_file($_FILES['mon_fichier']['tmp_name'],$emplacement);
     if($resultat){
       echo "<br/>Transfert réussi";
       header('Refresh : 1 ; URL = index.php?page=11');
     }
   }
+
+
+  $PiJo= new PieceJointe(
+  array( 'pie_num' => $NbrPieceJointe,
+         'cha_num' => $numChapitre,
+         'lien_fichier' => $emplacement
+  )
+);
+
+  $managerPijo->add($PiJo);
 }
+
+
 
 ?>

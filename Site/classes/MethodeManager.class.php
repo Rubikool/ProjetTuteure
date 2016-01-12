@@ -63,8 +63,8 @@ class MethodeManager {
     return $requete->fetchCOLUMN();
   }
 
-  public function getMethodeLastID(){
-    $sql='SELECT LAST_INSERT_ID() FROM methode';
+  public function getNumMethodeMax(){
+    $sql='SELECT MAX(met_num) FROM methode';
     $requete=$this->db->prepare($sql);
     $requete->execute();
 

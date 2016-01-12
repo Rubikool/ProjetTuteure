@@ -3,6 +3,34 @@ a {
 	text-decoration: none;
 }
 
+.chap{
+	border : 3px solid black;
+	text-align : center;
+	background-color: black;
+}
+
+.chap p{
+	color : white;
+}
+
+.piecejointe{
+	border : 5px solid #FF6347;
+	text-align : center;
+	background-color: #FF6347;
+}
+
+.lien{
+	border : 5px solid #9ACD32;
+	text-align : center;
+	background-color: #9ACD32;
+}
+
+.partition{
+	border : 5px solid #00BFFF;
+	text-align : center;
+	background-color: #00BFFF;
+}
+
 body{
 	background-color : black;
 	color : black;
@@ -36,7 +64,6 @@ td
 
 #header{
 	width : 100%;
-	height : 170px;
 	background-color : black;
 	box-shadow : 0 0 20px black;
 	position : relative;
@@ -58,35 +85,30 @@ td
 }
 
 #logo{
-	float : left;
-	width : 200px;
-	height : 200px;
-	position : relative;
-	top : 50%;
-	margin-top : -96px;
-	left : -40px;
+	position : absolute;
+	left : 2%;
+	bottom : 10%;
 }
 
 #titre{
 	float : left;
-	color : #CCCCCC;
-	font-size : 50px;
+	color : red;
+	font-size : 350%;
 	font-weight : bold;
-	width : 260px;
-	height : 50px;
-	position : relative;
-	left : 45px;
-	top : 80px;
+	position : absolute;
+	left : 20%;
+	top : 20%;
 	text-shadow : 1px 1px black, 2px 2px black;
+	font-family : calibri, sans-serif;
 }
 
 #connect{
-	height : 88px;
+	height : 55%;
 	width : 380px;
 	padding : 10px;
 	position : absolute;
 	right : 30px;
-	top : 25%;
+	top : 15%;
 	background-color : white;
 	border-radius : 8px;
 	border : 3px solid grey;
@@ -106,9 +128,7 @@ td
 }
 
 #footer{
-	color : white;
-	font-size : 12px;
-	text-align : center;
+	background-color : black;
 	box-shadow : 0 0 20px black;
 }
 
@@ -149,10 +169,10 @@ h1{
 
 .choixRCAccueil{
 	display : inline;
+	margin-left : 2%;
 }
 
 .imageRCAccueil{
-	align : center;
 	width : 10%;
 	height: 10%;
 }
@@ -295,4 +315,30 @@ h1{
 
 #superMenu li:hover a, #superMenu li li:hover a{
 	color : #000;
+}
+
+#mdp{
+	font-size : 80%;
+	padding : 0.7%;
+	position : absolute;
+	top : 80%;
+	right : 4%;
+	color : blue;
+}
+
+#mention{
+	color : blue;
+	text-align : center;
+	font-size : 10px;
+}
+
+#labelConnect
+{
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+#selection{
+	margin-bottom : 1%;
 }

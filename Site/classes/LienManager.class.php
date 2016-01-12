@@ -46,5 +46,13 @@ class LienManager {
 
     return $requete->fetch(PDO::FETCH_OBJ);
   }
+
+  public function getNumLienMax(){
+    $sql='SELECT MAX(lien_num) FROM lien';
+    $requete=$this->db->prepare($sql);
+    $requete->execute();
+
+    return $requete->fetchCOLUMN();
+  }
 }
 ?>
