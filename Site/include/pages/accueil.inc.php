@@ -1,6 +1,8 @@
 <?php
 $bd = new Mypdo();
 $manager = new CubeManager($bd);
+unset($_SESSION['nomMethode']);
+unset($_SESSION['numMethode']); 
 ?>
 
 <div class="choixRCAccueil">

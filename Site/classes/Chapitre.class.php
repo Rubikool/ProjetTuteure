@@ -4,7 +4,7 @@ class Chapitre {
 	private $cha_num;
 	private $cha_description;
 	private $cha_nom;
-	private $met_description;
+	private $per_num_valide;
 	private $cha_valide;
 	private $met_num;
 
@@ -23,7 +23,7 @@ class Chapitre {
           break;
 				case 'cha_nom' : $this->setCha_nom($valeur);
 	        break;
-				case 'met_description' : $this->setMet_description($valeur);
+				case 'per_num_valide' : $this->setPer_num_valide($valeur);
 	        break;
 				case 'cha_valide' : $this->setCha_valide($valeur);
 	        break;

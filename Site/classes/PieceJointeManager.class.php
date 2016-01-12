@@ -16,11 +16,8 @@ class PieceJointeManager {
     $req->execute();
   }
 
-<<<<<<< HEAD
-  public function getAllPieceJointeParChapitre($cha_num){
-=======
   public function getPieceJointeByChapitre($cha_num){
->>>>>>> refs/remotes/origin/master
+
     $sql='SELECT pie_num, lien_fichier FROM piecejointe
           WHERE cha_num = :cha_num';
           $requete=$this->db->prepare($sql);
@@ -28,6 +25,22 @@ class PieceJointeManager {
     $requete->execute();
 
     return $requete->fetch(PDO::FETCH_OBJ);
+  }
+
+  public function getAllPieceJointeParChapitre($cha_num){
+    $listePiJo=array();
+    $sql='SELECT pie_num,lien_fichier FROM piecejointe
+          WHERE cha_num = :cha_num';
+          $requete=$this->db->prepare($sql);
+    $requete->bindValue(':cha_num', $cha_num, PDO::PARAM_STR);
+    $requete->execute();
+
+    while($PiJo=$requete->fetch(PDO::FETCH_OBJ)){
+            $listePiJo[]=new PieceJointe($PiJo);
+          }
+
+      return $listePiJo;
+      $requete->closeCursor();
   }
 }
 ?>

@@ -2,6 +2,8 @@
 $bd=new Mypdo();
 $managerMeth=new MethodeManager($bd);
 $managerChap=new ChapitreManager($bd);
+unset($_SESSION['nomMethode']);
+unset($_SESSION['numMethode']); 
 $methodes=$managerMeth->getAllMethode();
 
 ?>

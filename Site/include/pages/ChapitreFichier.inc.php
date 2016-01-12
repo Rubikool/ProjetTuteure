@@ -44,7 +44,9 @@ if(empty($_FILES)){
     $resultat = move_uploaded_file($_FILES['mon_fichier']['tmp_name'],$emplacement);
     if($resultat){
       echo "<br/>Transfert réussi";
+      header('Refresh : 1 ; URL = index.php?page=11');
     }
   }
 }
+
 ?>
