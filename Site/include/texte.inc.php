@@ -227,6 +227,21 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 
 
 			//==========================================================================
+			// Page Chapitre
+			//==========================================================================
+			case 14:
+				include("pages/ChapitreFichier.inc.php");
+				break;
+
+			case 15:
+				include("pages/ChapitreLien.inc.php");
+				break;
+
+			case 16:
+				include("pages/ChapitrePartition.inc.php");
+				break;
+				
+			//==========================================================================
 			// Page de Non Accès
 			//==========================================================================
 			default :

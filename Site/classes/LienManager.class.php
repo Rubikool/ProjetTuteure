@@ -16,11 +16,19 @@ class LienManager {
     $req->execute();
   }
 
+<<<<<<< HEAD
+  public function getAllLienParChapitre($cha_num){
+    $sql='SELECT lien_num, lien_adresse FROM lien
+          WHERE cha_num = :cha_num';
+          $requete=$this->db->prepare($sql);
+    $requete->bindValue(':cha_num', $cha_num, PDO::PARAM_STR);
+=======
   public function getLienByChapitre($cha_num){
     $sql='SELECT lien_num, lien_adresse FROM lien
           WHERE cha_num = :num';
     $requete=$this->db->prepare($sql);
     $requete->bindValue(':num', $cha_num, PDO::PARAM_STR);
+>>>>>>> refs/remotes/origin/master
     $requete->execute();
 
     return $requete->fetch(PDO::FETCH_OBJ);

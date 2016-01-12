@@ -17,8 +17,8 @@ $methodes=$managerMeth->getAllMethode();
 				$nbrChapitre=$managerChap->getAllChapitreParMethode($methode->getMet_num());
 				$NBRChapitre=sizeof($nbrChapitre);?>
 		<tr>
-			<td class="listof"><a href="index.php?page=11&num=<?php echo $methode->getMet_num(); ?>"><?php echo $methode->getMet_nom();?></a></td>
-			<td class="listof"><a href="index.php?page=11&num=<?php echo $methode->getMet_num(); ?>"><?php echo $NBRChapitre;?></a></td>
+			<td class="listof"><a href="index.php?page=11&nomMethode=<?php echo $methode->getMet_nom(); ?>"><?php echo $methode->getMet_nom();?></a></td>
+			<td class="listof"><a href="index.php?page=11&nomMethode=<?php echo $methode->getMet_nom(); ?>"><?php echo $NBRChapitre;?></a></td>
 		</tr>
 	<?php } ?>
 </table>
