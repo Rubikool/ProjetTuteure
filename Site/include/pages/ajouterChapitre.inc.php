@@ -120,9 +120,11 @@ if(!isset($_SESSION['nomMethode'])){
             <?php
             switch($_SESSION['TailleCubeSelect']){
               case 2:
-                $mvm_num=
+
                 $listeMouvementParChapitre=$managerMouv->getMouvementByMvmNum($mvm_num);
-                foreach($listeMouvementParChapitre as $Mouvement) ?>
+                foreach($listeMouvementParChapitre as $Mouvement){
+
+                } ?>
 
                 <img src="../../image/partition/2x2x2/<?php echo $Partition->getMouvement();?>.png" />
 
@@ -157,7 +159,7 @@ if(!isset($_SESSION['nomMethode'])){
 
               }
 
-            }
+            
 
             ?>
 
