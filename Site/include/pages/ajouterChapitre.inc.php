@@ -39,9 +39,9 @@ $NbrChapitreParMethode=sizeof($list);
 
      <?php
         if(isset($_SESSION['TailleCubeSelect'])){ ?>
-          <a href="accueil.inc.php">Retour à l'accueil</a>
+          <a href="accueil.inc.php" id="lien">Retour à l'accueil</a>
         <?php }else{ ?>
-          <a href="rubikscube.inc.php">Retour sur votre cube</a>
+          <a href="rubikscube.inc.php" id="lien">Retour sur votre cube</a>
         <?php } ?>
 
   </fieldset>
@@ -61,7 +61,7 @@ $NbrChapitreParMethode=sizeof($list);
                                     <div class="chap">
 
                                       <br/><p>Chapitre : <label for="name"><?php echo $nomChapitre.'<br/>'; ?></label></p>
-                                      
+
                                       <div class="piecejointe">
 
                                       <?php

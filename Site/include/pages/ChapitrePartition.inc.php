@@ -4,4 +4,5 @@
        </br>
        <input type="text" name="lien" value="lien internet" id="lien" /><br />
 <input type="submit" name="submit" value="Envoyer" />
+<a href="index.php?page=11" id="lien">Revenir sur l'écran des méthodes</a>
 </form>

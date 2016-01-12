@@ -28,6 +28,8 @@ if(empty($_FILES)){
 
      <input type="submit" name="submit" value="Envoyer" />
 
+     <a href="index.php?page=11" id="lien">Revenir sur l'écran des méthodes</a>
+
 </form>
 
 <?php
