@@ -42,7 +42,7 @@ if(empty($_SESSION["connecte"])){
 
 	</div>
 	<div id="entete">
-		<div id="logo"><a href="index.php?page=0" ><img src="./image/logo.png" id="imgLogo" /></a></div>
+		<div id="logo"><a href="index.php?page=0" ><img src="./image/logo/logo.png" id="imgLogo" /></a></div>
     <div id="titre"><a href="index.php?page=0" >RUBIK'OOL</a></div>
 	</div>
 </div>
