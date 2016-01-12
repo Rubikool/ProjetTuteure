@@ -3,9 +3,15 @@
   $managerMeth=new MethodeManager($db);
   $managerChap=new ChapitreManager($db);
 
+if(!isset($_SESSION['nomMethode'])){
+  if(isset($_GET['nomMethode'])){
+      $_SESSION['nomMethode']=$_GET['nomMethode'];
+  }else{
+    $_SESSION['nomMethode']=$_POST['nomMethode'];
+  }
+}
 
 
-  $_SESSION['nomMethode']=$_GET['nomMethode'];
   $numMethode=$managerMeth->getNumMethodeParNom($_SESSION['nomMethode']);
   $list=$managerChap->getAllChapitreParMethode($numMethode);
 
@@ -66,14 +72,48 @@
       </fieldset>
     </form>
 
-          <?php foreach($list as $ligne){
+          <?php
+          $managerPiJo=new PieceJointeManager($bd);
+          $managerLien=new LienManager($bd);
+          $managerPart=new PartitionManager($bd);
+
+          foreach($list as $ligne){
             $nomChapitre=$ligne->getCha_nom();
-            $numChapitre=$managerMeth->getNumMethodeParNom($_SESSION['nomMethode']); ?>
+            $numChapitre=$ligne->getCha_num();
+
+            ?>
 
             <label for="name"><?php echo $nomChapitre; ?></label>
 
+            <?php
+            $listePieceJointeParChapitre=$managerPiJo->getAllPieceJointeParChapitre($numChapitre);
+
+            foreach($listeFichierParChapitre as $PieceJointe){
+              $PiJo=$PieceJointe->getLien_fichier();
+
+              //Création des headers, pour indiquer au navigateur qu'il s'agit d'un fichier à télécharger
+  header('Content-Transfer-Encoding: binary'); //Transfert en binaire (fichier)
+  header('Content-Disposition: attachment; filename="'.$PiJo.'"'); //Nom du fichier
+  header('Content-Length: '.int(sizeof($PiJo))); //Taille du fichier
+
+//Envoi du fichier dont le chemin est passé en paramètre
+  readfile($PiJo);
+
+             } ?>
+
             <a href="index.php?page=14&num=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">fichier</span></a>
+
+            <?php
+            $listeLienParChapitre=$managerLien->getAllLienParChapitre($numChapitre);
+
+            foreach($listeLienParChapitre as $Lien){
+              $Lien=$Lien->getLien_adresse();
+              ?>
+              <a href="<?php echo $Lien;?>">   <?php echo $Lien; ?>  </a>
+            <?php } ?>
+
             <a href="index.php?page=15&num=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">lien</span></a>
+
             <a href="index.php?page=16&num=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">partition</span></a>
 
 
