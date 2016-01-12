@@ -11,8 +11,8 @@ $managerMeth = new MethodeManager($bd);
 <fieldset>
   <legend>Nouvelle m&eacutethode</legend>
 
-  <p><label for="taille" id="taille">Taille :</label>
-    <select name="taille" id="taille"></p><br />
+  <p><label for="TailleCubeSelect" id="taille">Taille :</label>
+    <select name="TailleCubeSelect" id="taille"></p><br />
         <?php for($i=2;$i<=7;$i++){
 
           echo '<option value=' .$i.'>'.$i.'x'.$i.'x'.$i. ' </option>'; }?>

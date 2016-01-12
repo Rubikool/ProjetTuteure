@@ -10,10 +10,12 @@ if(!isset($_SESSION['nomMethode'])){
     $_SESSION['nomMethode']=$_POST['nomMethode'];
   }
 }
+  if(!empty($_POST["TailleCubeSelect"])){
+    $_SESSION["TailleCubeSelect"] = $_POST["TailleCubeSelect"];
+  }
 
-
-  $numMethode=$managerMeth->getNumMethodeParNom($_SESSION['nomMethode']);
-  $list=$managerChap->getAllChapitreParMethode($numMethode);
+  $_SESSION['numMethode']=$managerMeth->getNumMethodeParNom($_SESSION['nomMethode']);
+  $list=$managerChap->getAllChapitreParMethode($_SESSION['numMethode']);
 
   $NbrChapitreParMethode=sizeof($list);
 
@@ -76,6 +78,7 @@ if(!isset($_SESSION['nomMethode'])){
           $managerPiJo=new PieceJointeManager($bd);
           $managerLien=new LienManager($bd);
           $managerPart=new PartitionManager($bd);
+          $managerMouv=new MouvementManager($bd);
 
           foreach($list as $ligne){
             $nomChapitre=$ligne->getCha_nom();
@@ -113,6 +116,50 @@ if(!isset($_SESSION['nomMethode'])){
             <?php } ?>
 
             <a href="index.php?page=15&num=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">lien</span></a>
+
+            <?php
+            switch($_SESSION['TailleCubeSelect']){
+              case 2:
+                $mvm_num=
+                $listeMouvementParChapitre=$managerMouv->getMouvementByMvmNum($mvm_num);
+                foreach($listeMouvementParChapitre as $Mouvement) ?>
+
+                <img src="../../image/partition/2x2x2/<?php echo $Partition->getMouvement();?>.png" />
+
+                <?php
+                break;
+
+              case 3:?>
+                <img src="../../image/partition/2x2x2/.." />
+                <?php
+                break;
+
+              case 4:?>
+                <img src="../../image/partition/2x2x2/.." />
+                <?php
+                break;
+
+              case 5:?>
+                <img src="../../image/partition/2x2x2/.." />
+                <?php
+                break;
+
+              case 6:?>
+                <img src="../../image/partition/2x2x2/.." />
+                <?php
+                break;
+
+              case 7:?>
+                <img src="../../image/partition/2x2x2/.." />
+                <?php
+                break;
+
+
+              }
+
+            }
+
+            ?>
 
             <a href="index.php?page=16&num=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">partition</span></a>
 
