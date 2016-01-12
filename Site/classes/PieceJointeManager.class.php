@@ -16,7 +16,11 @@ class PieceJointeManager {
     $req->execute();
   }
 
+<<<<<<< HEAD
   public function getAllPieceJointeParChapitre($cha_num){
+=======
+  public function getPieceJointeByChapitre($cha_num){
+>>>>>>> refs/remotes/origin/master
     $sql='SELECT pie_num, lien_fichier FROM piecejointe
           WHERE cha_num = :cha_num';
           $requete=$this->db->prepare($sql);

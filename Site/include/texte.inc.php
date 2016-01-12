@@ -221,6 +221,11 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 				include("pages/listerMethode.inc.php");
 				break;
 
+			case 14:
+				include("pages/chapitreFichier.inc.php");
+				break;
+
+
 			//==========================================================================
 			// Page Chapitre
 			//==========================================================================

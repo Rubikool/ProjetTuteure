@@ -2,10 +2,9 @@
 
 class Cube {
 	private $cub_num;
-	private $cub_var1;
-	private $cub_var2;
-	private $cub_lettreFin;
+	private $cub_etat;
 	private $cub_taille;
+	private $per_num;
 
 	public function __construct($valeurs = array()){
 		if (!empty($valeurs)){
@@ -16,15 +15,13 @@ class Cube {
 	public function affecte($donnees){
     foreach($donnees as $attribut => $valeur) {
       switch($attribut){
-        case 'cub_var1' : $this->setCub_var1($valeur);
+        case 'cub_num' : $this->setCub_num($valeur);
           break;
-				case 'cub_var2' : $this->setCub_var2($valeur);
+				case 'cub_etat' : $this->setCub_etat($valeur);
           break;
-				case 'cub_lettreFin' : $this->setCub_lettreFin($valeur);
-	        break;
 				case 'cub_taille' : $this->setCub_taille($valeur);
 	        break;
-        case 'cub_num' : $this->setCub_num($valeur);
+        case 'per_num' : $this->setPer_num($valeur);
 	        break;
       }
     }
@@ -34,39 +31,31 @@ class Cube {
 		$this->cub_num = $cub_num;
 	}
 
-	public function setCub_var1($cub_var1){
-		$this->cub_var1 = $cub_var1;
+	public function setCub_etat($cub_etat){
+		$this->cub_etat = $cub_etat;
 	}
 
-  public function setCub_var2($cub_var2){
-		$this->cub_var2 = $cub_var2;
-	}
-
-  public function setCub_taille($cub_taille){
+	public function setCub_taille($cub_taille){
 		$this->cub_taille = $cub_taille;
 	}
 
-	public function setCub_lettreFin($cub_lettreFin){
-		$this->cub_lettreFin = $cub_lettreFin;
+  public function setPer_num($per_num){
+		$this->per_num = $per_num;
 	}
 
 	public function getCub_num(){
 		return $this->cub_num;
 	}
 
-	public function getCub_var1(){
-		return $this->cub_var1;
-	}
-
-	public function getCub_var2(){
-		return $this->cub_var2;
+	public function getCub_etat(){
+		return $this->cub_etat;
 	}
 
 	public function getCub_taille(){
 		return $this->cub_taille;
 	}
 
-	public function getCub_lettreFin(){
-		return $this->cub_lettreFin;
+	public function getPer_num(){
+		return $this->per_num;
 	}
 }
