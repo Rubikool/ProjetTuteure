@@ -19,7 +19,7 @@ class LienManager {
   public function getLienByChapitre($cha_num){
     $sql='SELECT lien_num, lien_adresse FROM lien
           WHERE cha_num = :num';
-          $requete=$this->db->prepare($sql);
+    $requete=$this->db->prepare($sql);
     $requete->bindValue(':num', $cha_num, PDO::PARAM_STR);
     $requete->execute();
 
