@@ -122,15 +122,23 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 			// Page de Méthode
 			//==========================================================================
 			case 10:
-		    include("pages/ajouterMethode.inc.php");
+		    include("pages/ajouterChapitre.inc.php");
 		    break;
 
 			case 11:
-				include("pages/ajouterMethodeSuite.inc.php");
-			  break;
+				include("pages/listerChapitre.inc.php");
+				break;
 
 			case 15:
 				include("pages/listerMethode.inc.php");
+				break;
+
+			case 18:
+				include("pages/detailsChapitre.inc.php");
+				break;
+
+			case 19:
+				include("pages/ajouterCommentaire.inc.php");
 				break;
 
 			//==========================================================================
@@ -198,6 +206,10 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 				include("pages/infoPersonne.inc.php");
 				break;
 
+			case 17:
+			  include("pages/listeMethodesParEleve.inc.php");
+			  break;
+
 			/*case 9:
 				include("pages/MotDePasseOubliéPersonne.inc.php");
 				break;*/
@@ -212,7 +224,7 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 			case 11:
 					include("pages/ajouterChapitre.inc.php");
 					break;
-					
+
 			case 12:
 				include("pages/ajouterMethodeSuite.inc.php");
 				break;
@@ -241,9 +253,10 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 				include("pages/ChapitrePartition.inc.php");
 				break;
 
-			case 30:
-				include("pages/ajouterChapitreV2.inc.php");
+			case 18:
+				include("pages/detailsChapitre.inc.php");
 				break;
+
 
 			//==========================================================================
 			// Page de Non Accès

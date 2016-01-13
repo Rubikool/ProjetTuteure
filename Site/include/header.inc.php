@@ -9,6 +9,8 @@ echo '<meta charset="utf-8">';
 <title>RUBIK'OOL</title>
 
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<script type="text/javascript" src="./js/scriptCours.js"></script>
+
 
 
 </head>
@@ -33,14 +35,14 @@ if(empty($_SESSION["connecte"])){?>
 		<b>Utilisateur : </b>
 <?php
 		echo '<br/>'.$_SESSION["prenom"].' '.$_SESSION["nom"];?>
-		<br/><a href="?page=2" >Deconnexion</a>
+		<br/><a href="?page=2" class="boutonConnexion" class="deconnexion">Deconnexion</a>
 	</div>
 <?php
     } else {?>
 		<b>Administrateur : </b>
 <?php
 		echo '<br/>'.$_SESSION["prenom"].' '.$_SESSION["nom"];?>
-		<br/><a href="?page=2" >Deconnexion</a>
+		<br/><a href="?page=2" class="boutonConnexion" class="deconnexion">Deconnexion</a>
 	</div>
 <?php
 	}

@@ -25,7 +25,8 @@ unset($_SESSION['numMethode']);
 
 
   <input type="submit" value="Valider" id="Valider"/>
-</fieldset></form>
+</fieldset>
+</form>
 
 
 <?php

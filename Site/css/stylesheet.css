@@ -1,34 +1,55 @@
 a {
 	font-weight : bold;
+	color: white;
 	text-decoration: none;
 }
 
+.deconnexion{
+	color:black;
+}
+
 .chap{
-	border : 3px solid black;
+	border : 3px solid #696969;
 	text-align : center;
-	background-color: black;
+	background-color: #DCDCDC;
+	border-radius: 10px;
+	margin-left : 2%;
+	margin-right : 2%;
+	margin-top : 2%;
 }
 
 .chap p{
-	color : white;
+	font-weight : bold;
 }
 
 .piecejointe{
-	border : 5px solid #FF6347;
+	border : 3px solid #B22222;
 	text-align : center;
-	background-color: #FF6347;
+	background-color: #DC143C;
+	border-radius: 10px;
+	margin-bottom : 2%;
+	margin-left : 7%;
+	margin-right : 7%;
 }
 
 .lien{
-	border : 5px solid #9ACD32;
+	border : 3px solid #3CB371;
 	text-align : center;
-	background-color: #9ACD32;
+	background-color: #32CD32;
+	border-radius: 10px;
+	margin-bottom : 2%;
+	margin-left : 7%;
+	margin-right : 7%;
 }
 
 .partition{
-	border : 5px solid #00BFFF;
+	border : 3px solid #6495ED;
 	text-align : center;
-	background-color: #00BFFF;
+	background-color: #4682B4;
+	border-radius: 10px;
+	margin-bottom : 2%;
+	margin-left : 7%;
+	margin-right : 7%;
 }
 
 body{
@@ -43,23 +64,25 @@ body{
 
 table {
  border-collapse:collapse;
- width:90%;
+ width:80%;
+ margin-left: auto;
+ margin-right:auto;
  }
 th, td {
 border:2px solid black;
  width:20%;
  background-color: rgb(27,27,27);
  color : white;
+ text-align:center;
  }
 td
 {
  text-align:center;
-
  }
-
- th {
+ th{
 	 color : orange;
 	 background-color:  rgba(10,10,30,0.75);
+	 text-align:center;
  }
 
 #header{
@@ -160,11 +183,14 @@ h1{
 	display : block;
 	float: left;
 	/*margin-left : 40%;*/
+	color : black;
 }
+
 .boutonInscription{
 	margin-top: 2%;
 	display : block;
 	float :right;
+	color : black;	
 }
 
 .choixRCAccueil{
@@ -184,7 +210,8 @@ h1{
 }
 
 #lienNom{
-		border: 1px groove black;
+	border: 1px groove black;
+	border-radius : 10px;
 }
 
 #methode{

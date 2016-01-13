@@ -16,7 +16,7 @@ class Partition {
       switch($attribut){
         case 'par_num' : $this->setPar_num($valeur);
           break;
-        case 'met_num' : $this->setMet_num($valeur);
+        case 'cha_num' : $this->setCha_num($valeur);
           break;
         case 'per_num' : $this->setPer_num($valeur);
           break;
@@ -28,8 +28,8 @@ class Partition {
     $this->par_num=$par_num;
   }
 
-	public function setMet_num($met_num){
-		$this->met_num = $met_num;
+	public function setCha_num($met_num){
+		$this->cha_num = $cha_num;
 	}
 
 	public function setPer_num($per_num){
@@ -40,8 +40,8 @@ class Partition {
     return $this->par_num;
   }
 
-	public function getMet_num(){
-		return $this->met_num;
+	public function getCha_num(){
+		return $this->cha_num;
 	}
 
 	public function getPer_num(){
