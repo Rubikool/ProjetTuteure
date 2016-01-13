@@ -1,7 +1,5 @@
 <?php
-if(isset($_GET['numChapitre'])){
-    $numChapitre=$_GET['numChapitre'];
-}
+
 
 if(empty($_POST['lien'])){ ?>
   <form method="post" action="#">
@@ -17,7 +15,7 @@ if(empty($_POST['lien'])){ ?>
     $lien_num=$managerLien->getNumLienMax()+1;
     $lien=new Lien(
     array(  'lien_num' => $lien_num,
-            'cha_num' => $numChapitre,
+            'met_num' => $_SESSION['numMethode'],
             'lien_adresse' => $_POST['lien']
     )
   );

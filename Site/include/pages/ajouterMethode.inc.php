@@ -13,15 +13,15 @@ unset($_SESSION['numMethode']);
 <fieldset>
   <legend>Nouvelle m&eacutethode</legend>
 
-  <p><label for="TailleCubeSelect" id="taille">Taille :</label>
+  <p><label for="TailleCubeSelect" id="taille" class="labelMethode">Taille :</label>
     <select name="TailleCubeSelect" id="taille"></p><br />
         <?php for($i=2;$i<=7;$i++){
 
           echo '<option value=' .$i.'>'.$i.'x'.$i.'x'.$i. ' </option>'; }?>
         </select>
 
-  <p><label for="nomMethode" >Nom de la méthode : </label><input type="text" id="nom" name="nomMethode" /></p>
-  <p><label for="description" >Description : </label><textarea  id="description" name="description" rows="8" cols="40"></textarea></p>
+  <p><label for="nomMethode" class="labelMethode">Nom de la méthode : </label><input type="text" id="nom" name="nomMethode" /></p>
+  <p><label for="description" class="labelMethode">Description : </label><textarea  id="description" name="description" rows="8" cols="40"></textarea></p>
 
 
   <input type="submit" value="Valider" id="Valider"/>
@@ -30,7 +30,6 @@ unset($_SESSION['numMethode']);
 
 
 <?php
-
 
 }else{
   $_SESSION['nomMethode']=$_POST['nomMethode'];
@@ -43,7 +42,8 @@ unset($_SESSION['numMethode']);
          'met_date' => $date,
          'met_description' => $_POST['description'],
          'cub_taille' => $_POST['TailleCubeSelect'],
-         'met_nom' => $_SESSION['nomMethode']
+         'met_nom' => $_SESSION['nomMethode'],
+         'met_commentaire' => ""
   )
 );
   $managerMeth->add($methode);

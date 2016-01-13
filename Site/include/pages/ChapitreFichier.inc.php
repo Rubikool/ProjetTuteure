@@ -9,9 +9,7 @@ $taille = 0;
 $extension = 0;
 $erreur = 0;
 
-if(isset($_GET['numChapitre'])){
-    $numChapitre=$_GET['numChapitre'];
-}
+
 
 
 
@@ -49,12 +47,13 @@ if(empty($_FILES)){
   } else {
     $error = "L'extension est incorrecte !";
     $extension = 1;
+    header('Refresh : 1 ; URL = index.php?page=11');
   }
 
   $NbrPieceJointe=$managerPijo->getNumPiJoMax()+1;
 
   if($taille == 0 && $extension == 0 && $erreur == 0){
-    $emplacement = $nomRepertoire.'Meth'.$_SESSION['numMethode'].'_Chap'.$numChapitre.'_Lien'.$NbrPieceJointe.'.pdf';
+    $emplacement = $nomRepertoire.'Meth'.$_SESSION['numMethode'].'_Lien'.$NbrPieceJointe.'.pdf';
     $resultat = move_uploaded_file($_FILES['mon_fichier']['tmp_name'],$emplacement);
     if($resultat){
       echo "<br/>Transfert réussi";
@@ -65,7 +64,7 @@ if(empty($_FILES)){
 
   $PiJo= new PieceJointe(
   array( 'pie_num' => $NbrPieceJointe,
-         'cha_num' => $numChapitre,
+         'met_num' => $_SESSION['numMethode'],
          'lien_fichier' => $emplacement
   )
 );

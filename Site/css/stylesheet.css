@@ -52,6 +52,25 @@ a {
 	margin-right : 7%;
 }
 
+fieldset{
+	margin-left : 20%;
+	margin-right : 20%;
+	border-radius : 300px;
+}
+
+legend{
+	font-weight : bold;
+	font-family : calibri, sans-serif;
+	font-size : 150%;
+}
+
+.labelMethode{
+	display: block;
+	width: 39%;
+	float: left;
+	text-align: right;
+}
+
 body{
 	background-color : black;
 	color : black;
@@ -190,7 +209,7 @@ h1{
 	margin-top: 2%;
 	display : block;
 	float :right;
-	color : black;	
+	color : black;
 }
 
 .choixRCAccueil{

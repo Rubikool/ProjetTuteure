@@ -50,77 +50,62 @@ $NbrChapitreParMethode=sizeof($list);
 
   </fieldset>
 </form>
-
+<br />
 <?php
                                     $managerPiJo=new PieceJointeManager($db);
                                     $managerLien=new LienManager($db);
                                     $managerPart=new PartitionManager($db);
                                     $managerMouv=new MouvementManager($db);
 
+                                    ?>
+                                    <div class="piecejointe">
+                                    <p>
+                                    <?php
+                                    $listePieceJointeParMeth=$managerPiJo->getAllPieceJointeParMethode($_SESSION['numMethode']);
+
+
+                                    foreach($listePieceJointeParMeth as $PieceJointe){
+                                      $PiJo=$PieceJointe->getLien_fichier();
+
+                                      echo '<p>'.$PiJo.'</p>';
+
+                                  /*    //Création des headers, pour indiquer au navigateur qu'il s'agit d'un fichier à télécharger
+                                  header('Content-Transfer-Encoding: binary'); //Transfert en binaire (fichier)
+                                  header('Content-Disposition: attachment; filename="'.$PiJo.'"'); //Nom du fichier
+                                  header('Content-Length: '.int(sizeof($PiJo))); //Taille du fichier
+
+                                  //Envoi du fichier dont le chemin est passé en paramètre
+                                  readfile($PiJo);*/
+
+                                     }
+                                      ?>
+                                  <p><a href="index.php?page=14" id="lien"><span id="lienNom">Ajouter un fichier</span></a></p>
+                                  </p>
+                                 </div>
+                                 <div class="lien" >
+                                 <p>
+                                    <?php
+                                    $listeLienParMethode=$managerLien->getAllLienParMethode($_SESSION['numMethode']);
+
+                                    foreach($listeLienParMethode as $Lien){
+                                      $lien=$Lien->getLien_adresse();
+                                      ?>
+                                       <p><a href="<?php echo $lien;?>" target="_blank">   <?php echo $lien; ?>  </a></p>
+                                    <?php } ?>
+                                    <p><a href="index.php?page=15" id="lien"><span id="lienNom">Ajouter un lien</span></a></p>
+                                    </p>
+                                  </div>
+                                  <?php
                                     foreach($list as $ligne){
                                       $nomChapitre=$ligne->getCha_nom();
-                                      $numChapitre=$ligne->getCha_num();
+                                      $metChapitre=$ligne->getCha_num();
                                       ?>
 
                                     <div class="chap">
 
                                       <br/><p>Chapitre : <label for="name"><?php echo $nomChapitre.'<br/>'; ?></label></p>
 
-                                      <div class="piecejointe">
 
-                                      <?php
-                                      $listePieceJointeParChapitre=$managerPiJo->getAllPieceJointeParChapitre($numChapitre);
-
-                                      if(sizeof($listePieceJointeParChapitre)==0){
-                                      ?>
-
-                                        <p><a href="index.php?page=14&numChapitre=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">Ajouter fichier</span></a></p>
-
-                                      <?php
-                                      }else{
-                                      ?>
-
-
-                                      <?php
-                                      foreach($listePieceJointeParChapitre as $PieceJointe){
-                                        $PiJo=$PieceJointe->getLien_fichier();
-
-                                        echo '<p>'.$PiJo.'</p>';
-
-                                    /*    //Création des headers, pour indiquer au navigateur qu'il s'agit d'un fichier à télécharger
-                                    header('Content-Transfer-Encoding: binary'); //Transfert en binaire (fichier)
-                                    header('Content-Disposition: attachment; filename="'.$PiJo.'"'); //Nom du fichier
-                                    header('Content-Length: '.int(sizeof($PiJo))); //Taille du fichier
-
-                                    //Envoi du fichier dont le chemin est passé en paramètre
-                                    readfile($PiJo);*/
-
-                                       }
-                                        ?>
-
-                                        <p><a href="index.php?page=14&numChapitre=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">Ajouter fichier</span></a></p>
-
-                                        <?php
-                                     }?>
-
-                                   </div>
-                                   <div class="lien" >
-
-
-
-
-                                      <?php
-                                      $listeLienParChapitre=$managerLien->getAllLienParChapitre($numChapitre);
-
-                                      foreach($listeLienParChapitre as $Lien){
-                                        $lien=$Lien->getLien_adresse();
-                                        ?>
-                                        <p><a href="<?php echo $lien;?>" target="_blank">   <?php echo $lien; ?>  </a></p>
-                                      <?php } ?>
-
-                                      <p><a href="index.php?page=15&numChapitre=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">Ajouter lien</span></a></p>
-
-                                    </div>
                                     <div class="partition">
                                       <p>
                                       <?php
@@ -141,7 +126,7 @@ $NbrChapitreParMethode=sizeof($list);
                                             }
 
                                       ?>
-                                      <p><a href="index.php?page=16&numChap=<?php echo $numChapitre;?>" id="lien"><span id="lienNom">Ajouter partition</span></a></p>
+                                      <p><a href="index.php?page=16&metChap=<?php echo $metChapitre;?>" id="lien"><span id="lienNom">Ajouter partition</span></a></p>
                                       </p>
                                     </div>
                                   </div>
@@ -151,7 +136,7 @@ $NbrChapitreParMethode=sizeof($list);
                                     }
 }else{
 
-$NbrChapitreNum=$managerChap->getNumChapitreMax()+1;
+$NbrChapitreNum=$managerChap->getmetChapitreMax()+1;
 
 $chapitre = new Chapitre(
 array('cha_num' => $NbrChapitreNum,

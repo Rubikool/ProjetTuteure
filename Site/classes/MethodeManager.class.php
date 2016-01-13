@@ -125,5 +125,15 @@ class MethodeManager {
     $requete->bindValue(':met_valide',$met_valide,PDO::PARAM_INT);
     $requete->execute();
   }
+
+  public function updateCommentaireMethode($met_num,$commentaire){
+    $sql='UPDATE methode SET met_commentaire=:met_commentaire WHERE met_num=:met_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
+    $requete->bindValue(':met_commentaire',$commentaire,PDO::PARAM_INT);
+    $requete->execute();
+  }
+
+
 }
 ?>
