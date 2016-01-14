@@ -2,6 +2,8 @@
 $bd=new Mypdo();
 $managerMeth=new MethodeManager($bd);
 $managerChap=new ChapitreManager($bd);
+unset($_SESSION['nomMethode']);
+unset($_SESSION['numMethode']);
 $methodes=$managerMeth->getAllMethode();
 
 ?>
@@ -17,8 +19,8 @@ $methodes=$managerMeth->getAllMethode();
 				$nbrChapitre=$managerChap->getAllChapitreParMethode($methode->getMet_num());
 				$NBRChapitre=sizeof($nbrChapitre);?>
 		<tr>
-			<td class="listof"><a href="index.php?page=11&nomMethode=<?php echo $methode->getMet_nom(); ?>"><?php echo $methode->getMet_nom();?></a></td>
-			<td class="listof"><a href="index.php?page=11&nomMethode=<?php echo $methode->getMet_nom(); ?>"><?php echo $NBRChapitre;?></a></td>
+			<td class="listof"><a href="index.php?page=18&nomMethode=<?php echo $methode->getMet_nom(); ?>"><?php echo $methode->getMet_nom();?></a></td>
+			<td class="listof"><a href="index.php?page=18&nomMethode=<?php echo $methode->getMet_nom(); ?>"><?php echo $NBRChapitre;?></a></td>
 		</tr>
 	<?php } ?>
 </table>

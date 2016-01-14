@@ -18,12 +18,7 @@ $NbrChapitreParMethode=sizeof($list);
 ?>
 
 <h1> Liste des chapitres pour la méthode : <?php echo $_SESSION['nomMethode']; ?> </h1>
-<p>
-<?php
-$descriptionMeth=$managerMeth->getDescriptionMethodeParNum($_SESSION['numMethode']);
-echo $descriptionMeth;
-?>
-</p>
+
 
 <?php
                                     $managerPiJo=new PieceJointeManager($db);
@@ -77,33 +72,20 @@ echo $descriptionMeth;
                                     <div class="chap">
 
                                       <br/><p>Chapitre : <label for="name"><?php echo $nomChapitre.'<br/>'; ?></label></p>
-                                      <p>
-                                      <?php
-                                      $descriptionChap=$ligne->getCha_description();
-                                      echo $descriptionChap;
-                                      ?>
-                                      </p>
+
 
 
                                     <div class="partition">
                                       <p>
                                       <?php
 
-                                          $listePartitionParChapitre=$managerPart->getAllPartitionParChapitre($numChapitre);
+                                          $listeMouvementParTaille=$managerMouv->getAllMouvementParTaille($_SESSION['TailleCubeSelect']);
 
-                                          foreach($listePartitionParChapitre as $Partition){
-                                            echo $Partition->getPar_nom();
-                                            $
-
-
-                                            foreach()
+                                          foreach($listeMouvementParTaille as $Mouvement){
+                                            $mouv=$Mouvement->getMouvement();
 
                                             ?>
-                                          <p>
-                                          <?php
 
-                                          ?>
-                                          </p>
                                           <img src="<?php echo $mouv;?>" />
 
                                           <?php

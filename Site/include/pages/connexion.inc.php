@@ -5,9 +5,12 @@ $manager = new PersonneManager($bd);
 if ($manager->verifNom($_POST["login"])->nbreLigne == 1){
   if ($manager->verifPwd($_POST["pwd"], $_POST["login"])->nbreLigne == 1){
     $_SESSION["connecte"] = 1;
-    $prenom = $manager->getPrenomPersonne($_POST["login"])->per_prenom;
-    $admin = $manager->getAdminPersonne($_POST["login"])->per_admin;
-    $nom = $manager->getNomPersonne($_POST["login"])->per_nom;
+    $prenom = $manager->getPersonne($_POST["login"])->per_prenom;
+    $admin = $manager->getPersonne($_POST["login"])->per_admin;
+    $nom = $manager->getPersonne($_POST["login"])->per_nom;
+    $num = $manager->getPersonne($_POST['login'])->per_num;
+
+    $_SESSION['num'] = $num;
     $_SESSION["prenom"] = $prenom;
     $_SESSION["admin"] = $admin;
     $_SESSION["nom"] = $nom;

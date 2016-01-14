@@ -1,13 +1,8 @@
 <?php
 $bd = new Mypdo();
-$manager = new CitationManager($bd);
-?>
+$managerMeth = new MethodeManager($bd);
 
-<h1>Valider une citation</h1>
+$managerMeth->updateMethode(-1,$_SESSION['numMethode']);
 
-<?php
-$manager->deleteCitation($_GET["num"]);
-
-echo '<br/><img src="image/valid.png" /> La citation a &eacutet&eacute refus&eacutee !';
-header("Refresh: 2 ; URL = index.php");
+header("Refresh: 0 ; URL = index.php?page=12");
 ?>

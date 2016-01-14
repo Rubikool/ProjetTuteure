@@ -25,7 +25,7 @@ class Mouvement {
   }
 
 	public function setMvm_num($mvm_num){
-		$this->cha_num = $mvm_num;
+		$this->mvm_num = $mvm_num;
 	}
 
 	public function setMouvement($mouvement){
