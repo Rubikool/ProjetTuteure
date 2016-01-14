@@ -20,7 +20,7 @@ class PersonneManager {
     $req->execute();
   }
 
-  public function getAllPersonne(){
+  public function getPersonne(){
     $listePersonne = array();
     $sql = 'SELECT per_num, per_nom, per_prenom, per_mail FROM personne
     ORDER BY per_num DESC';
@@ -31,15 +31,6 @@ class PersonneManager {
     return $listePersonne;
     $req->closeCursor();
   }
-
-  public function getPersonne($per_login){
-       $sql='SELECT per_num,per_nom,per_prenom,per_mail,per_admin,per_login,per_pwd FROM personne WHERE per_login=:per_login';
-       $requete=$this->db->prepare($sql);
-       $requete->bindValue(':per_login',$per_login,PDO::PARAM_STR);
-       $requete->execute();
-
-       return $requete->fetch(PDO::FETCH_OBJ);
-     }
 
   public function getNbrePersonne(){
     $nbrePersonne;

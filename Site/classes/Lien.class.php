@@ -2,7 +2,7 @@
 
 class Lien {
   private $lien_num;
-	private $met_num;
+	private $cha_num;
 	private $lien_adresse;
 
 	public function __construct($valeurs = array()){
@@ -16,7 +16,7 @@ class Lien {
       switch($attribut){
         case 'lien_num' : $this->setLien_num($valeur);
           break;
-        case 'met_num' : $this->setMet_num($valeur);
+        case 'cha_num' : $this->setCha_num($valeur);
           break;
         case 'lien_adresse' : $this->setLien_adresse($valeur);
           break;
@@ -28,8 +28,8 @@ class Lien {
     $this->lien_num=$lien_num;
   }
 
-	public function setMet_num($met_num){
-		$this->met_num = $met_num;
+	public function setCha_num($cha_num){
+		$this->cha_num = $cha_num;
 	}
 
 	public function setLien_adresse($lien_adresse){
@@ -40,8 +40,8 @@ class Lien {
     return $this->lien_num;
   }
 
-	public function getMet_num(){
-		return $this->met_num;
+	public function getCha_num(){
+		return $this->cha_num;
 	}
 
 	public function getLien_adresse(){

@@ -5,10 +5,8 @@ class Methode {
 	private $per_num;
 	private $met_date;
 	private $met_description;
-	private $met_valide;
 	private $cub_taille;
 	private $met_nom;
-	private $met_commentaire;
 
 	public function __construct($valeurs = array()){
 		if (!empty($valeurs)){
@@ -27,14 +25,10 @@ class Methode {
 	        break;
 				case 'met_description' : $this->setMet_description($valeur);
 	        break;
-				case 'met_valide' : $this->setMet_valide();
-					break;
 				case 'cub_taille' : $this->setCub_taille($valeur);
 	        break;
 				case 'met_nom' : $this->setMet_nom($valeur);
 	        break;
-				case 'met_commentaire' : $this->setMet_commentaire($valeur);
-					break;
       }
     }
   }
@@ -51,10 +45,6 @@ class Methode {
 		$this->met_description = $met_description;
 	}
 
-	public function setMet_valide($met_valide){
-		$this->met_valide = $met_valide;
-	}
-
 	public function setMet_date($met_date){
 		$this->met_date = $met_date;
 	}
@@ -65,10 +55,6 @@ class Methode {
 
 	public function setMet_nom($met_nom){
 		$this->met_nom = $met_nom;
-	}
-
-	public function setMet_commentaire($met_commentaire){
-		$this->met_commentaire = $met_commentaire;
 	}
 
 	public function getMet_num(){
@@ -83,10 +69,6 @@ class Methode {
 		return $this->met_description;
 	}
 
-	public function getMet_valide(){
-		return $this->met_valide;
-	}
-
 	public function getMet_date(){
 		return $this->met_date;
 	}
@@ -97,10 +79,6 @@ class Methode {
 
 	public function getMet_nom(){
 		return $this->met_nom;
-	}
-
-	public function getMet_commentaire(){
-		return $this->met_commentaire;
 	}
 
 }

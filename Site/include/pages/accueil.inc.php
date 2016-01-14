@@ -1,10 +1,8 @@
 <?php
 $bd = new Mypdo();
 $manager = new CubeManager($bd);
-unset($_SESSION['nomMethode']);
-unset($_SESSION['numMethode']);
 ?>
-<div id="selection">Selectionnez votre cube</div>
+
 <div class="choixRCAccueil">
   <a href="index.php?page=4&TailleCubeSelect=2" ><img src="image/2x2x2.png" class="imageRCAccueil" /></a>
 </div>
@@ -25,3 +23,5 @@ unset($_SESSION['numMethode']);
   <a href="index.php?page=4&TailleCubeSelect=7" ><img src="image/7x7x7.png" class="imageRCAccueil" /></a>
 </div>
 <br/>
+
+<a href="index.php?page=14" >page fichier</a>

@@ -18,9 +18,9 @@ class PartitionManager {
 
   public function getPartitionByPersonne($per_num){
     $sql='SELECT par_num FROM partition
-          WHERE per_num = :per_num';
+          WHERE per_num = :num';
     $requete=$this->db->prepare($sql);
-    $requete->bindValue(':per_num', $per_num, PDO::PARAM_STR);
+    $requete->bindValue(':num', $per_num, PDO::PARAM_STR);
     $requete->execute();
 
     return $requete->fetch(PDO::FETCH_OBJ);

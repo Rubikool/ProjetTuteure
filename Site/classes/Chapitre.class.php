@@ -4,7 +4,8 @@ class Chapitre {
 	private $cha_num;
 	private $cha_description;
 	private $cha_nom;
-	private $per_num_valide;
+	private $met_description;
+	private $cha_valide;
 	private $met_num;
 
 	public function __construct($valeurs = array()){
@@ -22,7 +23,9 @@ class Chapitre {
           break;
 				case 'cha_nom' : $this->setCha_nom($valeur);
 	        break;
-				case 'per_num_valide' : $this->setPer_num_valide($valeur);
+				case 'met_description' : $this->setMet_description($valeur);
+	        break;
+				case 'cha_valide' : $this->setCha_valide($valeur);
 	        break;
 				case 'met_num' : $this->setMet_num($valeur);
 	        break;
@@ -46,6 +49,10 @@ class Chapitre {
 		$this->cha_nom = $cha_nom;
 	}
 
+	public function setCha_valide($cha_valide){
+		$this->cha_valide = $cha_valide;
+	}
+
 	public function setMet_num($met_num){
 		$this->met_num = $met_num;
 	}
@@ -64,6 +71,10 @@ class Chapitre {
 
 	public function getCha_nom(){
 		return $this->cha_nom;
+	}
+
+	public function getCha_valide(){
+		return $this->cha_valide;
 	}
 
 	public function getMet_num(){

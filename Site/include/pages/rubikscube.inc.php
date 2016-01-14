@@ -1,8 +1,7 @@
 <?php
 $bd = new Mypdo();
 $manager = new CubeManager($bd);
-unset($_SESSION['nomMethode']);
-unset($_SESSION['numMethode']); 
+
 
 if(!empty($_GET["TailleCubeSelect"])){
   $_SESSION["TailleCubeSelect"] = $_GET["TailleCubeSelect"];

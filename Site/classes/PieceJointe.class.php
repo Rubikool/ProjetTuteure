@@ -2,7 +2,7 @@
 
 class PieceJointe {
   private $pie_num;
-	private $met_num;
+	private $cha_num;
 	private $lien_fichier;
 
 	public function __construct($valeurs = array()){
@@ -16,7 +16,7 @@ class PieceJointe {
       switch($attribut){
         case 'pie_num' : $this->setPie_num($valeur);
           break;
-        case 'met_num' : $this->setMet_num($valeur);
+        case 'cha_num' : $this->setCha_num($valeur);
           break;
         case 'lien_fichier' : $this->setLien_fichier($valeur);
           break;
@@ -28,8 +28,8 @@ class PieceJointe {
     $this->pie_num=$pie_num;
   }
 
-	public function setMet_num($met_num){
-		$this->met_num = $met_num;
+	public function setCha_num($cha_num){
+		$this->cha_num = $cha_num;
 	}
 
 	public function setLien_fichier($lien_fichier){
@@ -40,8 +40,8 @@ class PieceJointe {
     return $this->pie_num;
   }
 
-	public function getMet_num(){
-		return $this->met_num;
+	public function getCha_num(){
+		return $this->cha_num;
 	}
 
 	public function getLien_fichier(){
