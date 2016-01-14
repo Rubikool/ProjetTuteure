@@ -28,6 +28,14 @@ $NbrChapitreParMethode=sizeof($list);
 ?>
 
 <h1> ajout d'un chapitre pour la méthode : <?php echo $_SESSION['nomMethode']; ?> </h1>
+
+<p>
+<?php
+$descriptionMeth=$managerMeth->getDescriptionMethodeParNum($_SESSION['numMethode']);
+echo $descriptionMeth;
+?>
+</p>
+
 <form method="post" action="#">
 <fieldset>
   <legend>Ajouter un chapitre</legend>
@@ -104,7 +112,12 @@ $NbrChapitreParMethode=sizeof($list);
                                     <div class="chap">
 
                                       <br/><p>Chapitre : <label for="name"><?php echo $nomChapitre.'<br/>'; ?></label></p>
-
+                                      <p>
+                                      <?php
+                                      $descriptionChap=$ligne->getCha_description();
+                                      echo $descriptionChap;
+                                      ?>
+                                      </p>
 
                                     <div class="partition">
                                       <p>
@@ -136,7 +149,7 @@ $NbrChapitreParMethode=sizeof($list);
                                     }
 }else{
 
-$NbrChapitreNum=$managerChap->getmetChapitreMax()+1;
+$NbrChapitreNum=$managerChap->getNumChapitreMax()+1;
 
 $chapitre = new Chapitre(
 array('cha_num' => $NbrChapitreNum,

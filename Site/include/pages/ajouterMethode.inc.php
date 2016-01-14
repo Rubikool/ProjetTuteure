@@ -35,12 +35,14 @@ unset($_SESSION['numMethode']);
   $_SESSION['nomMethode']=$_POST['nomMethode'];
 
   $NbrMethode=$managerMeth->getNumMethodeMax()+1;
+  $description=addslashes($_POST['description']);
   $date=date("Y-m-d");
+  
   $methode=new Methode(
   array( 'met_num' => $NbrMethode,
          'per_num' => $_SESSION['num'],
          'met_date' => $date,
-         'met_description' => $_POST['description'],
+         'met_description' => $description,
          'cub_taille' => $_POST['TailleCubeSelect'],
          'met_nom' => $_SESSION['nomMethode'],
          'met_commentaire' => ""

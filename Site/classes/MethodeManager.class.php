@@ -101,6 +101,15 @@ class MethodeManager {
     return $requete->fetchCOLUMN();
   }
 
+  public function getDescriptionMethodeParNum($met_num){
+    $sql='SELECT met_description FROM methode WHERE met_num=:met_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
+    $requete->execute();
+
+    return $requete->fetchCOLUMN();
+  }
+
   public function getNumMethodeMax(){
     $sql='SELECT MAX(met_num) FROM methode';
     $requete=$this->db->prepare($sql);

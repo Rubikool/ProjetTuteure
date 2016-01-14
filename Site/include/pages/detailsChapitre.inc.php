@@ -18,7 +18,12 @@ $NbrChapitreParMethode=sizeof($list);
 ?>
 
 <h1> Liste des chapitres pour la méthode : <?php echo $_SESSION['nomMethode']; ?> </h1>
-
+<p>
+<?php
+$descriptionMeth=$managerMeth->getDescriptionMethodeParNum($_SESSION['numMethode']);
+echo $descriptionMeth;
+?>
+</p>
 
 <?php
                                     $managerPiJo=new PieceJointeManager($db);
@@ -48,7 +53,7 @@ $NbrChapitreParMethode=sizeof($list);
 
                                      }
                                       ?>
-                                  
+
                                   </p>
                                  </div>
                                  <div class="lien" >
@@ -75,7 +80,12 @@ $NbrChapitreParMethode=sizeof($list);
                                     <div class="chap">
 
                                       <br/><p>Chapitre : <label for="name"><?php echo $nomChapitre.'<br/>'; ?></label></p>
-
+                                      <p>
+                                      <?php
+                                      $descriptionChap=$ligne->getCha_description();
+                                      echo $descriptionChap;
+                                      ?>
+                                      </p>
 
                                     <div class="partition">
                                       <p>
