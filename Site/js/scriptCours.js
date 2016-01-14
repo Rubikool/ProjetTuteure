@@ -20,6 +20,5 @@ function AjouterPartition(id)
     monImg.setAttribute("onclick" , "SupprimerPartition(\'id\')");
 
     conteneur.appendChild(monImg);
-   
 
 }

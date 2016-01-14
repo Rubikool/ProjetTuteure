@@ -4,16 +4,17 @@ class MethodeManager {
   public function __construct($db){
     $this->db = $db;
   }
-  
+
   public function add($methode){
     $req = $this->db->prepare('INSERT INTO methode (met_num, per_num, met_date, met_description,
-      cub_taille, met_nom, met_commentaire) VALUES(:met_num, :per_num,
-      :met_date, :met_description, :cub_taille, :met_nom, :met_commentaire)');
+      cub_taille,met_valide, met_nom, met_commentaire) VALUES(:met_num, :per_num,
+      :met_date, :met_description, :cub_taille,:met_valide, :met_nom, :met_commentaire)');
     $req->bindValue(':met_num', $methode->getMet_num(), PDO::PARAM_STR);
     $req->bindValue(':per_num', $methode->getPer_num(), PDO::PARAM_STR);
     $req->bindValue(':met_date', $methode->getMet_date(), PDO::PARAM_STR);
     $req->bindValue(':met_description', $methode->getMet_description(), PDO::PARAM_STR);
     $req->bindValue(':cub_taille', $methode->getCub_taille(), PDO::PARAM_STR);
+    $req->bindValue(':met_commentaire', $methode->getMet_commentaire(), PDO::PARAM_STR);
     $req->bindValue(':met_nom', $methode->getMet_nom(), PDO::PARAM_STR);
     $req->bindValue(':met_commentaire', $methode->getMet_commentaire(), PDO::PARAM_STR);
     $req->execute();
@@ -21,7 +22,7 @@ class MethodeManager {
 
   public function getAllMethode(){
     $listeMethodes = array();
-    $sql = 'SELECT met_num, per_num, met_date, met_description, cub_taille,met_nom,met_commentaire FROM methode WHERE met_valide = 1';
+    $sql = 'SELECT met_num, per_num, met_date, met_description, cub_taille, met_valide, met_nom,met_commentaire FROM methode WHERE met_valide = 1';
     $req = $this->db->prepare($sql);
     $req->execute();
     while ($methode = $req->fetch(PDO::FETCH_OBJ)){
@@ -33,7 +34,7 @@ class MethodeManager {
 
   public function getAllMethodeParUti($per_num){
   $listeMethodes = array();
-  $sql = 'SELECT met_num, per_num, met_date, met_description, cub_taille,met_nom,met_commentaire FROM methode WHERE per_num=:per_num';
+  $sql = 'SELECT met_num, per_num, met_date, met_description, cub_taille,met_valide,met_nom,met_commentaire FROM methode WHERE per_num=:per_num';
   $req = $this->db->prepare($sql);
   $req -> bindValue(':per_num',$per_num,PDO::PARAM_STR);
   $req->execute();
@@ -45,7 +46,7 @@ class MethodeManager {
   }
   public function getAllMethodeNonValide(){
     $listeMethodes = array();
-    $sql = 'SELECT met_num, per_num, met_date, met_description, cub_taille, met_nom,met_commentaire FROM methode
+    $sql = 'SELECT met_num, per_num, met_date, met_description, cub_taille,met_valide, met_nom,met_commentaire FROM methode
       WHERE met_valide = 0';
     $req = $this->db->prepare($sql);
     $req->execute();
@@ -56,7 +57,7 @@ class MethodeManager {
     $req->closeCursor();
   }
   public function getMethodeParPersonne($per_num){
-    $sql='SELECT met_num,per_num,met_date,met_description,cub_taille,met_nom,met_commentaire FROM methode
+    $sql='SELECT met_num,per_num,met_date,met_description,cub_taille,met_valide,met_nom,met_commentaire FROM methode
           WHERE per_num=:per_num';
     $requete=$this->db->prepare($sql);
     $requete->bindValue(':per_num',$per_num, PDO::PARAM_STR);
@@ -64,7 +65,7 @@ class MethodeManager {
     return $requete->fetch(PDO::FETCH_OBJ);
   }
   public function getMethode($met_num){
-    $sql='SELECT per_num,met_date,met_description,cub_taille,met_nom,met_commentaire FROM methode
+    $sql='SELECT per_num,met_date,met_description,cub_taille,met_valide,met_nom,met_commentaire FROM methode
           WHERE met_num=:met_num';
     $requete=$this->db->prepare($sql);
     $requete->bindValue(':met_num',$met_num, PDO::PARAM_STR);

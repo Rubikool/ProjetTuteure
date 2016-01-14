@@ -190,6 +190,9 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 			case 14:
 				include("pages/chapitreFichier.inc.php");
 				break;
+			case 19:
+				include("pages/modifierMethode.inc.php");
+				break;
 			//==========================================================================
 			// Page Chapitre
 			//==========================================================================

@@ -44,7 +44,6 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 		<ul>
 			<li><a href="index.php?page=13">Lister</a></li>
 			<li><a href="index.php?page=10">Ajouter</a></li>
-			<li><a href="index.php?page=0">Charger</a></li>
 		</ul>
 	</li>
 	<li><a href="index.php?page=0">Zone Perso</a>
