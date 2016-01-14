@@ -1,0 +1,298 @@
+a {
+	font-weight : bold;
+	text-decoration: none;
+}
+
+body{
+	background-color : black;
+	color : black;
+	font-family : "Segoe UI", Verdana, serif;
+	font-size : 14pt;
+	margin : 0;
+	padding : 0;
+	position : relative;
+}
+
+table {
+ border-collapse:collapse;
+ width:90%;
+ }
+th, td {
+border:2px solid black;
+ width:20%;
+ background-color: rgb(27,27,27);
+ color : white;
+ }
+td
+{
+ text-align:center;
+
+ }
+
+ th {
+	 color : orange;
+	 background-color:  rgba(10,10,30,0.75);
+ }
+
+#header{
+	width : 100%;
+	height : 170px;
+	background-color : black;
+	box-shadow : 0 0 20px black;
+	position : relative;
+}
+
+#entete{
+	width : 1050px;
+	height : 170px;
+	margin : auto;
+}
+
+#imgLogo{
+	margin-top: 2%;
+	width : 80%;
+	height : 80%;
+	display: block;
+	max-width : 90%;
+	max-height: 90%;
+}
+
+#logo{
+	float : left;
+	width : 200px;
+	height : 200px;
+	position : relative;
+	top : 50%;
+	margin-top : -96px;
+	left : -40px;
+}
+
+#titre{
+	float : left;
+	color : #CCCCCC;
+	font-size : 50px;
+	font-weight : bold;
+	width : 260px;
+	height : 50px;
+	position : relative;
+	left : 45px;
+	top : 80px;
+	text-shadow : 1px 1px black, 2px 2px black;
+}
+
+#connect{
+	height : 88px;
+	width : 380px;
+	padding : 10px;
+	position : absolute;
+	right : 30px;
+	top : 25%;
+	background-color : white;
+	border-radius : 8px;
+	border : 3px solid grey;
+	box-shadow : 0 0 6px black inset;
+	color : black;
+	font-size : 20px;
+}
+
+#corps{
+	width : 100%;
+	background-color : white;
+}
+
+#texte{
+	width : 100%;
+	text-align : center;
+}
+
+#footer{
+	color : white;
+	font-size : 12px;
+	text-align : center;
+	box-shadow : 0 0 20px black;
+}
+
+h1{
+	text-shadow : 1px 1px 2px #333333;
+}
+
+#elePartition{
+	border : 2px solid black;
+	width : 700px;
+	margin-left : 23.946%;
+	height : 141px;
+	border-radius : 10px;
+}
+
+.imagePartition{
+	float : left;
+	display : inline;
+	width : 20%;
+}
+
+.imagesPartition{
+	display : block;
+
+}
+
+.boutonConnexion{
+	margin-top: 2%;
+	display : block;
+	float: left;
+	/*margin-left : 40%;*/
+}
+.boutonInscription{
+	margin-top: 2%;
+	display : block;
+	float :right;
+}
+
+.choixRCAccueil{
+	display : inline;
+}
+
+.imageRCAccueil{
+	align : center;
+	width : 10%;
+	height: 10%;
+}
+
+#lien{
+	display: inline-block;
+}
+
+#lienNom{
+		border: 1px groove black;
+}
+
+#methode{
+	border : 2px solid black;
+	width : 500px;
+	height : 900px;
+	border-radius : 10px;
+	float : right;
+}
+
+/* MENU */
+#superMenu, #superMenu ul{
+	padding : 0;
+	margin : 0;
+	list-style : none;
+	text-align : center;
+}
+
+#superMenu li{
+	display : inline-block;
+	position : relative;
+	border-radius : 0 0 8px 8px;
+}
+
+#superMenu ul li{
+	display : inherit;
+	border-radius : 0;
+}
+
+#superMenu ul li:hover{
+	border-radius : 0;
+}
+
+#superMenu ul li:first-child{
+	border-radius : 8px 8px 0 0;
+}
+
+#superMenu ul li:last-child{
+	border-radius : 0 0 8px 8px;
+}
+
+#superMenu ul{
+	position : absolute;
+	z-index : 1000;
+	max-height : 0;
+	left : 0;
+	right : 0;
+	overflow : hidden;
+	-moz-transition : .8s all .3s;
+	-webkit-transition : .8s all .3s;
+	transition : .8s all .3s;
+}
+
+#superMenu li:hover ul{
+	max-height : 15em;
+}
+
+/* background des liens menus */
+#superMenu li:first-child{
+	background-color : #65537A;
+	background-image : linear-gradient(to bottom, #65537A 0%, #2A2333 100%);
+}
+
+#superMenu li:nth-child(2){
+	background-color : #729EBF;
+	background-image : linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
+}
+
+#superMenu li:nth-child(3){
+	background-color : #F6AD1A;
+	background-image : linear-gradient(to bottom, #F6AD1A 0%, #9F391A 100%);
+}
+
+#superMenu li:last-child{
+	background-color : #CFFF6A;
+	background-image : linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);
+}
+
+/* background des liens sous menus */
+#superMenu li:first-child li{
+	background : #2A2333;
+}
+
+#superMenu li:nth-child(2) li{
+	background : #333A40;
+}
+
+#superMenu li:nth-child(3) li{
+	background : #9F391A;
+}
+
+#superMenu li:last-child li{
+	background : #677F35;
+}
+
+/* background des liens menus et sous menus au survol */
+#superMenu li:first-child:hover, #superMenu li:first-child li:hover{
+	background : #65537A;
+}
+
+#superMenu li:nth-child(2):hover, #superMenu li:nth-child(2) li:hover{
+	background : #729EBF;
+}
+
+#superMenu li:nth-child(3):hover, #superMenu li:nth-child(3) li:hover{
+	background : #F6AD1A;
+}
+
+#superMenu li:last-child:hover, #superMenu li:last-child li:hover{
+	background : #CFFF6A;
+}
+
+/* les a href */
+#superMenu a{
+	text-decoration : none;
+	display : block;
+	padding : 8px 32px;
+	color : #fff;
+	font-family : arial;
+}
+
+#superMenu ul a{
+	padding : 8px 0;
+}
+
+#superMenu li:hover li a{
+	color : #fff;
+	text-transform : inherit;
+}
+
+#superMenu li:hover a, #superMenu li li:hover a{
+	color : #000;
+}
