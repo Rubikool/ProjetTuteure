@@ -38,5 +38,11 @@ class PieceJointeManager {
     $requete->execute();
     return $requete->fetchCOLUMN();
   }
+  public function deletePiJo($met_num){
+    $sql='DELETE FROM piecejointe WHERE met_num=:met_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
+    $requete->execute();
+  }
 }
 ?>

@@ -30,37 +30,39 @@ if(empty($_POST["mail"])){
   }
 
   //=====Déclaration des messages au format texte et au format HTML.
-  $message_txt = "Récupération du mot de passe pour le site Rubik'ool : $";
+  $message_txt = "Nouveau mot de passe pour le site Rubik'ool : ";
   //==========
 
   //=====Création de la boundary
-  $boundary = "-----=".md5(rand());
+  $mdp = rand();
+  $boundary = "-----=".md5($mdp);
   //==========
 
   //=====Définition du sujet.
-  $sujet = "Rubik'ool - Récupération du mot de passe";
+  $sujet = "Rubik'ool - Nouveau mot de passe";
   //=========
 
   //=====Création du header de l'e-mail.
   $header = "From: \"Antoine Pinard\"<antoine.pinard@laposte.net>".$passage_ligne;
   $header.= "Reply-to: \"Antoine Pinard\" <antoine.pinard@laposte.net>".$passage_ligne;
   $header.= "MIME-Version: 1.0".$passage_ligne;
-  $header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
+  $header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$mdp\"".$passage_ligne;
   //==========
 
   //=====Création du message.
-  $message = $passage_ligne."--".$boundary.$passage_ligne;
+
   //=====Ajout du message au format texte.
-  $message.= "Content-Type: text/plain; charset=\"ISO-8859-1\"".$passage_ligne;
-  $message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
-  $message.= $passage_ligne.$message_txt.$passage_ligne;
+  $message = $passage_ligne.$message_txt.$passage_ligne;
   //==========
-  $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
-  $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+  $message.= $passage_ligne."\"".$mdp."\"".$passage_ligne;
   //==========
 
   //=====Envoi de l'e-mail.
-  mail($mail,$sujet,$message,$header);
+  echo 'To : '.$mail;
+  echo '<br/><br/>Sujet : '.$sujet;
+  echo '<br/><br/>Message : '.$message;
+  echo '<br/><br/>Header : '.$header;
+  //mail($mail,$sujet,$message,$header);
   //==========
 }
 ?>

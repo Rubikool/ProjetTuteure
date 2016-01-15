@@ -48,9 +48,9 @@ class PersonneManager {
     return $nbreLigne;
   }
 
-  public function verifPwd($pwd, $nom){
-    $crypt = Chiffrement::crypt($pwd);
-    $sql = 'SELECT COUNT(per_pwd) AS nbreLigne FROM personne WHERE per_login = \''.$nom.'\' AND per_pwd = \''.$crypt.'\'';
+  public function verifPwd($pwd, $log){
+    $crypt = $pwd;
+    $sql = 'SELECT COUNT(per_pwd) AS nbreLigne FROM personne WHERE per_login = \''.$log.'\' AND per_pwd = \''.$crypt.'\'';
     $req = $this->db->query($sql);
     $nbreLigne = $req->fetch(PDO::FETCH_OBJ);
     return $nbreLigne;
@@ -133,6 +133,25 @@ class PersonneManager {
     $sql = 'DELETE FROM personne
     WHERE per_num = \''.$num.'\'';
     $req = $this->db->query($sql);
+  }
+
+  public function updatePersonneNPM($per_nom,$per_prenom,$per_mail,$per_num){
+    $sql='UPDATE personne SET per_nom=:per_nom, per_prenom=:per_prenom, per_mail=:per_mail
+      WHERE per_num=:per_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':per_nom',$per_nom,PDO::PARAM_STR);
+    $requete->bindValue(':per_prenom',$per_prenom,PDO::PARAM_STR);
+    $requete->bindValue(':per_mail',$per_mail,PDO::PARAM_STR);
+    $requete->bindValue(':per_num',$per_num,PDO::PARAM_INT);
+    $requete->execute();
+  }
+
+  public function updatePersonnePwd($per_pwd,$per_num){
+    $sql='UPDATE personne SET per_pwd=:per_pwd WHERE per_num=:per_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':per_pwd',$per_pwd,PDO::PARAM_STR);
+    $requete->bindValue(':per_num',$per_num,PDO::PARAM_INT);
+    $requete->execute();
   }
 }
 ?>

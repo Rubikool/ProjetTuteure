@@ -10,11 +10,16 @@ if(!empty($_GET["TailleCubeSelect"])){
 }
 
 $nombreRB = 0;
+?>
 
-echo '<div id="methode" >';
-echo '<h2>Methode</h2>';
-echo '</div>';
+<div id="methode" >
+  <h2>Methode</h2>
+  <select>
+    <option></option>
+  </select>
+</div>
 
+<?php
 echo '<h2>Cube '.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'</h2>';
 echo '<img src="image/'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'.png" class="imageRCAccueil" />';
 

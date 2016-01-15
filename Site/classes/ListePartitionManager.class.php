@@ -42,5 +42,27 @@ class ListePartitionManager {
     return $listeMouvements;
     $req->closeCursor();
   }
+
+  public function deleteListePartition($par_num){
+    $sql='DELETE FROM listepartition WHERE par_num=:par_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':par_num',$par_num,PDO::PARAM_STR);
+    $requete->execute();
+  }
+  
+  public function getAllListePartitionParPartition($par_num){
+    $listePartitions = array();
+    $sql = 'SELECT par_num,mvm_num,numero FROM `listepartition`
+            WHERE par_num=:par_num';
+    $req = $this->db->prepare($sql);
+    $req -> bindValue(':par_num',$par_num,PDO::PARAM_STR);
+    $req->execute();
+
+    while ($partition = $req->fetch(PDO::FETCH_OBJ)){
+      $listePartitions[] = new Partition($partition);
+    }
+    return $listePartitions;
+    $req->closeCursor();
+  }
 }
 ?>

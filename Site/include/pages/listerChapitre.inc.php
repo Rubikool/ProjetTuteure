@@ -24,7 +24,14 @@ $descriptionMeth=$managerMeth->getDescriptionMethodeParNum($_SESSION['numMethode
 echo $descriptionMeth;
 ?>
 </p>
-
+<fieldset>
+  <legend>Commentaire de l'administrateur :</legend>
+<?php
+      $commentaire=$managerMeth->getCommentaireParMethode($_SESSION['numMethode']);
+      echo $commentaire;
+?>
+</fieldset>
+<br />
 <?php
                                     $managerPiJo=new PieceJointeManager($db);
                                     $managerLien=new LienManager($db);
@@ -127,8 +134,8 @@ echo $descriptionMeth;
           <br />
           <table class="SansBordure">
             <tr class="SansBordure">
-              <td class="SansBordure"><a href="index.php?page=13">Accepter <img src="./image/valid.png"/></a></td>
-              <td class="SansBordure"><a href="index.php?page=19">Commentaire <img src="./image/modifier.png"/></a></td>
-              <td class="SansBordure"><a href="index.php?page=14">Refuser <img src="./image/erreur.png"/></a></td>
+              <td class="SansBordure"><a href="index.php?page=13&<?php echo $_SESSION['nomMethode'];?>">Accepter <img src="./image/valid.png"/></a></td>
+              <td class="SansBordure"><a href="index.php?page=19&<?php echo $_SESSION['nomMethode'];?>">Commentaire <img src="./image/modifier.png"/></a></td>
+              <td class="SansBordure"><a href="index.php?page=14&<?php echo $_SESSION['nomMethode'];?>">Refuser <img src="./image/erreur.png"/></a></td>
             </tr>
           </table>

@@ -25,6 +25,7 @@ if(empty($_POST['commentaire'])){
 } else {
   $commentaire=addslashes($_POST['commentaire']);
   $managerMeth->updateCommentaireMethode($_SESSION['numMethode'],$commentaire);
+  echo "Commentaire ajoutée";
   header('Refresh : 1 ; URL = index.php?page=12');
 }
 ?>

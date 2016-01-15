@@ -42,6 +42,7 @@ unset($_SESSION['numMethode']);
          'met_date' => $date,
          'met_description' => $description,
          'cub_taille' => $_POST['TailleCubeSelect'],
+         'met_valide' => 0,
          'met_nom' => $_SESSION['nomMethode'],
          'met_commentaire' => ""
   )

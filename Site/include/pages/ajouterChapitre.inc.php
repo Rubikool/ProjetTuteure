@@ -127,10 +127,10 @@ echo $descriptionMeth;
 
                                                 <?php
 
-                                              }
-
-                                            }
-
+                                              } 
+                                            } ?>
+                                            <p><a href="index.php?page=16" id="lien"><span id="lienNom">Ajouter une Partition</span></a></p>
+                                            <?php
                                         ?>
 
                                         </p>

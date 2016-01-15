@@ -28,7 +28,7 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 	</li>
 	<li><a href="index.php?page=0">Zone Perso</a>
 		<ul>
-			<li><a href="index.php?page=7">Paramètres</a></li>
+			<li><a href="index.php?page=20">Paramètres</a></li>
 		</ul>
 	</li>
 </ul>
@@ -49,7 +49,7 @@ if (empty($_SESSION["connecte"]) OR $_SESSION["connecte"] != 1){
 	<li><a href="index.php?page=0">Zone Perso</a>
 		<ul>
 			<li><a href="index.php?page=17">Mes méthodes</a></li>
-			<li><a href="index.php?page=7">Paramètres</a></li>
+			<li><a href="index.php?page=20">Paramètres</a></li>
 		</ul>
 	</li>
 </ul>

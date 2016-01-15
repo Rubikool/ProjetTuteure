@@ -38,5 +38,11 @@ class LienManager {
     $requete->execute();
     return $requete->fetchCOLUMN();
   }
+  public function deleteLien($met_num){
+    $sql='DELETE FROM lien WHERE met_num=:met_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
+    $requete->execute();
+  }
 }
 ?>
