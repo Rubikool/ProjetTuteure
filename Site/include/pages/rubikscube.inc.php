@@ -1,81 +1,55 @@
 <?php
-$bd = new Mypdo();
-$manager = new CubeManager($bd);
+$bd = new Mypdo ();
+$manager = new CubeManager ( $bd );
 
-
-if(!empty($_GET["TailleCubeSelect"])){
-  $_SESSION["TailleCubeSelect"] = $_GET["TailleCubeSelect"];
-  $_SESSION["nbRB"] = 0;
-  $manager->viderCube();
+if (! empty ( $_GET ["TailleCubeSelect"] )) {
+	$_SESSION ["TailleCubeSelect"] = $_GET ["TailleCubeSelect"];
+	$_SESSION ["nbRB"] = 0;
+	$manager->viderCube ();
 }
 
 $nombreRB = 0;
 ?>
 
-<div id="methode" >
-  <h2>Methode</h2>
-  <select>
-    <option></option>
-  </select>
+<div id="methode">
+	<h2>Methode</h2>
+	<select>
+		<option></option>
+	</select>
 </div>
-
+<input type="hidden" id="taille"
+	value="<?php echo $_REQUEST['TailleCubeSelect'];?>" />
 <?php
-echo '<h2>Cube '.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'</h2>';
-echo '<img src="image/'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'x'.$_SESSION["TailleCubeSelect"].'.png" class="imageRCAccueil" />';
+echo '<h2>Cube ' . $_SESSION ["TailleCubeSelect"] . 'x' . $_SESSION ["TailleCubeSelect"] . 'x' . $_SESSION ["TailleCubeSelect"] . '</h2>';
+?><?php
 
-$i = 0;
-echo '<br/>';
-while($i<$_SESSION["TailleCubeSelect"]){
-    $i++;
-    echo '<a href="index.php?page=4&var1=2&var2='.$i.'&lettreFin=g" onclick="essai(2,'.$i.',g)" ><img src="./image/fg.png"/></a>';
-}
-
-$i = 0;
-echo '<br/>';
-while($i<$_SESSION["TailleCubeSelect"]){
-    $i++;
-    echo '<a href="index.php?page=4&var1=2&var2='.$i.'&lettreFin=d" onclick="essai(2,'.$i.',d)" ><img src="./image/fd.png"/></a>';
-}
-
-$i = 0;
-echo '<br/>';
-while($i<$_SESSION["TailleCubeSelect"]){
-    $i++;
-    echo '<a href="index.php?page=4&var1=1&var2='.$i.'&lettreFin=h" onclick="essai(1,'.$i.',h)" ><img src="./image/fdh.png"/></a>';
-}
-
-$i = 0;
-echo '<br/>';
-while($i<$_SESSION["TailleCubeSelect"]){
-    $i++;
-    echo '<a href="index.php?page=4&var1=1&var2='.$i.'&lettreFin=b" onclick="essai(1,'.$i.',b)" ><img src="./image/fdb.png"/></a>';
-}
-
-$i = 0;
-echo '<br/>';
-while($i<$_SESSION["TailleCubeSelect"]){
-    $i++;
-    echo '<a href="index.php?page=4&var1=3&var2='.$i.'&lettreFin=g" onclick="essai(3,'.$i.',g)" ><img src="./image/fdg.png"/></a>';
-}
-
-$i = 0;
-echo '<br/>';
-while($i<$_SESSION["TailleCubeSelect"]){
-    $i++;
-    echo '<a href="index.php?page=4&var1=3&var2='.$i.'&lettreFin=d" onclick="essai(3,'.$i.',d)" ><img src="./image/fdd.png"/></a>';
-}
-
-echo '<br/><br/><br/>';
-echo '<h3>Partition :</h3>';
-echo '<tr><div id="elePartition">';
-
-$listeTailleCubeSelect = $manager->getCube();
-foreach ($listeTailleCubeSelect as $TailleCubeSelect){
-  echo '<div class="imagePartition">';
-  echo '<img src="image/'.$TailleCubeSelect->getCub_taille().'/'.$TailleCubeSelect->getCub_var1().'_'.$TailleCubeSelect->getCub_var2().$TailleCubeSelect->getCub_lettreFin().'.png" class="imagePartition" />';
-  echo '<input type="button" src="image/valid.png" />';
-  echo '</div>';
-}
-
-echo '</div>';
-?>
+for($i = 0; $i < $_REQUEST ['TailleCubeSelect']; $i ++) :
+	?>
+<input type="button" onclick="X(<?php echo $i;?>,-1);"
+	value="R<?php echo $i;?>" />
+<input type="button" onclick="X(<?php echo $i;?>,1);"
+	value="R'<?php echo $i;?>" />
+<?php endfor;?>
+<br />
+<?php for($i = 0; $i < $_REQUEST ['TailleCubeSelect']; $i ++) :?>
+<input type="button" onclick="Y(<?php echo $i;?>,-1);"
+	value="U<?php echo $i;?>" />
+<input type="button" onclick="Y(<?php echo $i;?>,1);"
+	value="U'<?php echo $i;?>" />
+<?php endfor;?>
+<br />
+<?php for($i = 0; $i < $_REQUEST ['TailleCubeSelect']; $i ++) :?>
+<input type="button" onclick="Z(<?php echo $i;?>,-1);"
+	value="F<?php echo $i;?>" />
+<input type="button" onclick="Z(<?php echo $i;?>,1);"
+	value="F'<?php echo $i;?>" />
+<?php endfor;?>
+<br />
+<input type="button" onclick="recentrer();"
+	value="Centrer la vur sur la face de travail" />
+<input type="button" onclick="initCube();"
+	value="Reprendre depuis un cube fini" />
+<input type="button" onclick="melanger();" value="Melanger le cube" />
+<input type="button" onclick="creeAxes();" value="Afficher/Cacher axes" />
+<div id="container"></div>
+<h3>Partition :</h3>
