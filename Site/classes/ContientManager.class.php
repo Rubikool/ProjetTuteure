@@ -41,5 +41,12 @@ class ContientManager {
     $req->closeCursor();
   }
 
+  public function deleteContient($par_num){
+    $sql='DELETE FROM contient WHERE par_num=:par_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':par_num',$par_num,PDO::PARAM_STR);
+    $requete->execute();
+  }
+
 }
 ?>

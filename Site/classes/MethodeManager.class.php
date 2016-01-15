@@ -14,7 +14,7 @@ class MethodeManager {
     $req->bindValue(':met_date', $methode->getMet_date(), PDO::PARAM_STR);
     $req->bindValue(':met_description', $methode->getMet_description(), PDO::PARAM_STR);
     $req->bindValue(':cub_taille', $methode->getCub_taille(), PDO::PARAM_STR);
-    $req->bindValue(':met_commentaire', $methode->getMet_commentaire(), PDO::PARAM_STR);
+    $req->bindValue(':met_valide', $methode->getMet_valide(), PDO::PARAM_STR);
     $req->bindValue(':met_nom', $methode->getMet_nom(), PDO::PARAM_STR);
     $req->bindValue(':met_commentaire', $methode->getMet_commentaire(), PDO::PARAM_STR);
     $req->execute();
@@ -93,6 +93,13 @@ class MethodeManager {
     $requete->execute();
     return $requete->fetchCOLUMN();
   }
+  public function getCommentaireParMethode($met_num){
+    $sql='SELECT met_commentaire FROM methode WHERE met_num=:met_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
+    $requete->execute();
+    return $requete->fetchCOLUMN();
+  }
   public function getNumMethodeMax(){
     $sql='SELECT MAX(met_num) FROM methode';
     $requete=$this->db->prepare($sql);
@@ -118,6 +125,13 @@ class MethodeManager {
     $requete=$this->db->prepare($sql);
     $requete->bindValue(':met_num',$met_num,PDO::PARAM_STR);
     $requete->bindValue(':met_commentaire',$commentaire,PDO::PARAM_INT);
+    $requete->execute();
+  }
+
+  public function deleteMethode($met_num){
+    $sql='DELETE FROM methode WHERE met_num=:met_num';
+    $requete = $this->db->prepare($sql);
+    $requete -> bindValue(':met_num',$met_num,PDO::PARAM_STR);
     $requete->execute();
   }
 }

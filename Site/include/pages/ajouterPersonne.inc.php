@@ -35,14 +35,15 @@ if (empty($nom) OR empty($prenom)){
   <p><label for="pwd" >Mot de passe : </label><input type="password" id="pwd" name="pwd" /></p>
   <p><label for="pwd2" >Confirmation : </label><input type="password" id="pwd2" name="pwd2" /></p>
   <input type="submit" value="Valider" />
-</fieldset></form>
+</fieldset>
+</form>
 
 <?php
 } else {
 
   $num = $manager->getNumMaxPersonne()->per_num + 1;
-
-  $crypt = Chiffrement::crypt($_POST["pwd"]);
+  $grainDeSel = 'XOURR\'LINE';
+  $crypt = md5(md5($_POST["pwd"]).$grainDeSel);
 
   $personne = new Personne(
     array('per_num' => $num,
@@ -57,7 +58,6 @@ if (empty($nom) OR empty($prenom)){
 
   $manager->add($personne);
 
-  echo '<img src="image/valid.png" /> L\'&eacuteleve a &eacutet&eacute ajout&eacute !';
-  header("Refresh : 2 ; URL = index.php");
+  header("Refresh : 0 ; URL = index.php");
 }
 ?>

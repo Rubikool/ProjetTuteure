@@ -27,6 +27,12 @@ class PartitionManager {
     return $requete->fetch(PDO::FETCH_OBJ);
   }
 
-  
+  public function deletePartition($par_num){
+    $sql='DELETE FROM partition WHERE par_num=:par_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':par_num',$par_num,PDO::PARAM_STR);
+    $requete->execute();
+  }
+
 }
 ?>

@@ -41,5 +41,12 @@ class ChapitreManager {
     $requete->execute();
     return $requete->fetchCOLUMN();
   }
+
+  public function deleteChapitre($cha_num){
+    $sql='DELETE FROM chapitre WHERE cha_num=:cha_num';
+    $requete=$this->db->prepare($sql);
+    $requete->bindValue(':cha_num',$cha_num,PDO::PARAM_STR);
+    $requete->execute();
+  }
 }
 ?>

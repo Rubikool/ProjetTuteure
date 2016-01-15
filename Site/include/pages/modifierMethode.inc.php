@@ -26,6 +26,14 @@ $descriptionMeth=$managerMeth->getDescriptionMethodeParNum($_SESSION['numMethode
 echo $descriptionMeth;
 ?>
 </p>
+<fieldset>
+  <legend>Commentaire de l'administrateur :</legend>
+<?php
+      $commentaire=$managerMeth->getCommentaireParMethode($_SESSION['numMethode']);
+      echo $commentaire;
+?>
+</fieldset>
+<br />
 
 <form method="post" action="#">
 <fieldset>
@@ -127,11 +135,10 @@ echo $descriptionMeth;
 
                                                 <?php
 
-                                              } ?>
-                                              <p><a href="index.php?page=16" id="lien"><span id="lienNom">Ajouter une Partition</span></a></p>
-                                              <?php
-                                            }
-
+                                              }
+                                            } ?>
+                                            <p><a href="index.php?page=16" id="lien"><span id="lienNom">Ajouter une Partition</span></a></p>
+                                            <?php
                                         ?>
 
                                         </p>
