@@ -1,4 +1,5 @@
 <?php
+require_once ('xajax_core/xajax.inc.php');
 $bd = new Mypdo ();
 $manager = new CubeManager ( $bd );
 
